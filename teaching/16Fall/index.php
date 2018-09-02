@@ -8,7 +8,7 @@
 <div id="navmaincontainer">
 <!-- THE MENU -->
 <nav id="navbar"></nav>
-<script type="text/javascript" src="./includes/header+menu.js"></script>
+<script type="text/javascript" src="../../includes/header+menu.js"></script>
 
 <!-- THE BODY COLUMN -->
 <div id="main">
