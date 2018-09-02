@@ -1,0 +1,5 @@
+AuthUserFile /home/breiniger/public_html/teaching/teachingS14/.htpasswd
+AuthName "Restricted Directory"
+AuthType Basic
+AuthGroupFile /dev/null
+require user vault

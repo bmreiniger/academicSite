@@ -1,0 +1,29 @@
+2D Measurements
+integrating tangential and normal components of vector field for flow; recognizing clockwise/counterclockwise and inward/outward from sign and parametrization
+general path integrals
+flow integrals for spotting sources and sinks
+gradient fields are very special vector fields: independence of path, fundamental theorem of path integrals, net flow-along closed curves is zero
+
+2D Integrals
+definition of 2D integrals
+computation by slicing
+computation by Gauss-Green
+recognizing which method to use
+area of region as 2D integral
+average value of a function on a region
+centroid of a region
+probabilities given a 2D distribution
+
+Sources, Sinks, Swirls, and Singularities
+divergence and connection to sources, sinks, and flow across
+rotation/curl and connection to swirls and flow along
+singularities as big sources/sinks
+Gauss-Green and its relationship with path integrals
+
+Transform 2D Integrals
+transformations of the plane, a.k.a. change of coordinates
+area conversion factor, a.k.a. the Jacobian
+transforming 2D integrals
+finding a transformation to make a 2D integral easier
+density, mass, and area of flat plates
+

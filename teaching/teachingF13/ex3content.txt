@@ -1,0 +1,25 @@
+3D Integrals and Transformations, Spherical Coordinates
+
+definition as Riemann sum
+volume is triple integral of 1
+computing via slicing/sticks
+changing order of integration
+transformations
+spherical coordinates
+
+
+3D Flow-Across
+
+surface integrals: scalar and flow-across
+Gauss's theorem in 3D (a.k.a. Divergence Theorem)
+replacement surfaces
+sources, sinks, singularities in 3D vector fields
+
+
+3D Flow-Along
+
+3D flow along curves
+3D gradient fields, Fundamental Theorem of Line Integrals in 3D
+curl of a vector field: computation, meaning
+Stokes's theorem
+replacement surfaces

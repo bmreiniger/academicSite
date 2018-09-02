@@ -1,0 +1,38 @@
+Parametric Plots
+what are parametric equations
+how to plot them
+common parametrizations: ellipses, lines and segments, tubes and horns
+slopes of tangent lines (hence maximization/minimization)
+
+Vectors
+manipulating vectors graphically and algebraically
+sums, differences, scalar multiples
+lengths
+dot product: definition, relationship to angle between, properties
+push (projection)
+position/velocity/acceleration, normal and tangential components
+parametric equations of lines: parallel, perpendicular, intersections
+
+Perpendicularity
+cross product: definition, relationship to angle between, right hand rule, properties
+equations (xyz and parametric) of planes in 3D
+interactions between planes and lines in 3D
+finding perpendicular unit vectors that span a plane (for plotting)
+unit tangent, normal, binormal vectors
+
+Gradient
+definition of gradient
+direction of greatest increase of a function
+perpendicularity to level curves/surfaces
+minimizing/maximizing a function
+minimizing/maximizing subject to a constraint (Lagrange multipliers)
+understanding when a function will have a minimim/maximum
+local extrema; 2nd Derivative test
+chain rule
+
+Vector Fields and Their Trajectories
+what is a vector field, how to visualize
+what are trajectories, visually and algebraically
+what are sinks and sources visually
+gradient fields are special vector fields
+eyeballing vector field flow across/along a curve; looking at tangential and normal components

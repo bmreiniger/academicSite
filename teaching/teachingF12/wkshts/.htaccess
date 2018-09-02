@@ -1,0 +1,5 @@
+AuthUserFile /home/breiniger/www/teaching/teachingF12/.htpasswd
+AuthName "Restricted Directory"
+AuthType Basic
+AuthGroupFile /dev/null
+require valid-user

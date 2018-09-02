@@ -1,0 +1,11 @@
+Most of the Ebook used here was put together by Yelda Aydin-Mullen.
+It is a compilation of sections from free web resources, authored by
+1) Terry Wesner and Harry Nustad,
+2) David Arnold and Bruce Wagner,
+3) Tyler Wallace,
+4) Wade Ellis and Denny Burzynski
+
+I have added a few sections, which are simply links to Paul's Online 
+Notes.  (They are distinguished by having ".lnk" file extensions [which
+is not of importance; my site redirects you from those empty files
+to Paul's site].)
