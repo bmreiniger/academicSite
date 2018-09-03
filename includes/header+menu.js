@@ -30,6 +30,5 @@ var headerstuff = `
 </script>
 `;
 
-headerstuff += menu;
-
-document.getElementById("navbar").innerHTML = headerstuff;
+document.getElementsByTagName('head')[0].appendChild(headerstuff);
+document.getElementById("navbar").innerHTML = menu;
