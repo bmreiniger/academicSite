@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsthm,amsmath,amssymb}
+
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{theorem}
+Every walk contains a path (for graphs or digraphs).
+\end{theorem}
+\begin{theorem}
+Every odd closed walk contains an odd cycle (for graphs or digraphs).
+\end{theorem}
+\begin{theorem}
+A graph is bipartite if and only if it has no odd cycles.
+\end{theorem}
+
+\begin{theorem}
+A graph is Eulerian if and only if it has at most one nontrivial component and every vertex degree is even.
+
+A digraph is Eulerian if and only if it its underlying graph has at most one nontrivial component and every vertex has indegree equal to its outdegree.
+\end{theorem}
+
+\begin{theorem}
+An edge is a cut-edge if and only if it is contained in no cycles.
+\end{theorem}
+
+\begin{theorem}
+If $G$ is simple and $\delta(G)\geq k$, then $G$ contains a path of length at least $k$.  If $k\geq2$, then also $G$ contains a cycle of length at least $k+1$.
+\end{theorem}
+
+\begin{theorem}
+For any graph $G$, $\sum_{v} d(v)=2e(G)$.  For any digraph $D$, $\sum_v d^+(v)=\sum_v d^-(v)=e(D)$.
+\end{theorem}
+
+\begin{theorem}
+Every loopless $G$ has a bipartite subgraph with at least $e(G)/2$ edges.
+\end{theorem}
+\begin{theorem}
+The maximum size of a triangle-free simple graph on $n$ vertices is $\floor{n^2/4}$.
+\end{theorem}
+
+
+\begin{theorem}
+A sequence $d_1\geq \dotsb \geq d_n\geq0$ of integers is the degree sequence of
+\begin{itemize}
+\item some graph if and only if the sum $\sum d_i$ is even.
+\item some loopless graph if and only if the sum is even and $d_1\leq\frac12\sum d_i$.
+\item some simple graph if and only if the ``residual sequence'' from Havel-Hakimi is graphic.
+\end{itemize}
+\end{theorem}
+
+
+\begin{theorem}
+Any two of (1) ``$e(G)=n(G)-1$'', (2) ``$G$ is acyclic'', (3) ``$G$ is connected'' imply the third.  Also equivalent: that $G$ is loopless and has the property that every pair of vertices is joined by a unique path.
+\end{theorem}
+\begin{theorem}
+Every nontrivial tree has at least two leaves.  Deleting a leaf from a tree yields a tree.  Every edge of a tree is a cut-edge.  Adding any missing edge to a tree creates exactly one cycle.  Every connected graph has a spanning tree.  The center of a tree is either $K_1$ or $K_2$.
+\end{theorem}
+
+\begin{theorem}
+Pr\"ufer codes are in one-to-one correspondence with the set of trees with vertex set $[n]$.  Hence the number of such is $n^{n-2}$.
+\end{theorem}
+\begin{theorem}
+$\tau(G)=\tau(G-e)+\tau(G\cdot e)$.
+\end{theorem}
+\begin{theorem}
+$\tau(G)=(-1)^{s+t}\det Q^*$, where $Q_{i,j}$ is $-a_{i,j}$ if $i\neq j$ and $d(v_i)$ if $i=j$, and $Q^*$ is obtained from $Q$ by deleting row $s$ and column $t$. 
+\end{theorem}
+
+\begin{theorem}
+Kruskal's and Prim's Algorithms solve the Minimum Spanning Tree problem.
+
+Dijkstra's Algorithm solves the Minimum Distances from $u$ problem.
+\end{theorem}
+
+\end{document}

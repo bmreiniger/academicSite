@@ -1,0 +1,88 @@
+\documentclass[11pt]{amsart}
+    \topmargin -.5 in
+    \textheight 9.0in
+    \textwidth 6.25 in
+    \oddsidemargin 0 in
+    \evensidemargin 0 in
+   
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Math 454\\ Homework 3 \qquad Due February 8}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+
+Turn in four of the following problems to be graded.  You \emph{must} choose at least one of the hypercube problems.
+
+\bigskip
+
+Solve at least one of the following two hypercube problems.
+\begin{enumerate}[Q1]
+\item (1.3.26)   Count the 6-cycles in $Q_3$.  Prove that every 6-cycle in $Q_k$ ($k\geq3$) lies in exactly one 3-dimensional subcube.  Use this to count the 6-cycles in $Q_k$ for $k\geq3$.
+\item (1.3.27)   Given $k\in\mathbb{N}$, let $G$ be the subgraph of $Q_{2k+1}$ induced by vertices in which the number of ones is $k$ or $k+1$.  Prove that $G$ is regular, and compute $n(G)$, $e(G)$, and the girth of $G$.
+\end{enumerate}
+
+\bigskip
+
+%MOVED TO IN-CLASS: 
+%Solve at least one of the following two challenging problems.
+%\begin{enumerate}[C1]
+%\item (1.3.16)  For $k\geq2$ and $g\geq2$, prove that there exists a $k$-regular graph with girth $g$.  (Use induction on $g$.  Within that proof, use induction on $k$.  In the inductive step, make use of a $(k-1)$-regular graph $H$ with girth $g$ and an $n(H)$-regular graph $G$ with girth $\ceil{g/2}$.)
+%\item (1.3.19)  Let $G$ be a claw-free simple graph.  Prove that if $\Delta(G)\geq5$, then $G$ has a 4-cycle.  Prove that this is sharp, by constructing a 4-regular claw-free graph having no 4-cycle.  (For the construction:  use your proof for $\Delta(G)\geq5$ to describe what such a graph must look like locally, and find a correspondence with a certain class of 3-regular graphs.)
+%\end{enumerate}
+%\bigskip
+
+\begin{enumerate}[P1]
+\item 
+\begin{enumerate}
+%\item 1.1.10.  Prove that if $G$ is disconnected, then $\overline{G}$ is connected.
+\item (1.3.3)   Let $u$ and $v$ be adjacent vertices in a simple graph $G$.  Prove that $uv$ belongs to at least $d(u)+d(v)-n(G)$ triangles of $G$.
+\item (1.3.41) Prove that if $G$ is an $n$-vertex simple graph with $\Delta(G)=\ceil{n/2}$ and $\delta(G)=\floor{n/2}-1$, then $G$ is connected.
+\end{enumerate}
+
+\item (1.3.9)  In a league with two divisions of 13 teams each, determine whether it is possible to schedule a season with each team playing nine games against teams within its division and four games against teams in the other division.  (Clearly state your graph theoretic model for this problem.)
+\item (1.3.17)  Let $G$ be a graph with at least two vertices.  Prove or disprove:
+\begin{enumerate}
+\item Deleting a vertex of degree $\Delta(G)$ cannot increase the average degree.
+\item Deleting a vertex of degree $\delta(G)$ cannot decrease the average degree.
+\end{enumerate}
+\item (1.3.32)  Prove that the number of simple even graphs with vertex set $[n]$ is $\displaystyle 2^{\binom{n-1}{2}}$.  (Hint: find a bijection with the set of simple graphs with vertex set $[n-1]$.)
+
+\end{enumerate}
+
+
+\vfill
+\begin{quotation}
+\footnotesize
+\end{quotation}
+
+\end{document}
+

@@ -1,0 +1,68 @@
+\documentclass[11pt]{amsart}%10pt for solutions
+\usepackage[margin=1in]{geometry}
+  
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Math 454\\ Homework 5 \qquad Due February 22}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+%remove for solutions:
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+Turn in four of the following problems to be graded.
+\bigskip
+%-----/remove for solutions
+
+\begin{enumerate}
+\item (1.4.25) 
+\begin{enumerate}
+\item Prove that every connected graph has an orientation in which the number of vertices with odd outdegree is at most 1.
+\item Use part (a) to prove that a simple connected graph with an even number of edges has a decomposition into copies of $P_3$.
+\end{enumerate}
+
+\item (1.4.29) Suppose that $G$ is a graph and $D$ is an orientation of $G$ that is strongly connected.  Prove that if $G$ has an odd cycle $C$, then $D$ also has an odd cycle.  \textit{(Hint: consider each pair of consecutive vertices on $C$; what does strong connectivity of $D$ give you?  You may use the result of Exercise~1.4.4.)}
+
+\item (1.4.38) Prove that there is an $n$-vertex tournament in which every vertex is a king except for $n\in\{2,4\}$.
+
+%\item digraphic sequences, via bigraphic sequences?
+
+\item (2.1.13) Prove that every connected graph with diameter $d$ has an independent set of size $\ceil{(1+d)/2}$.
+
+\item Prove that for every graph $G$, $\rad(G)\leq\diam(G)\leq2\rad(G)$.  (See Exercise~2.1.47.)
+
+\item Prove that the number of leaves in a tree $T$ (with at least two vertices) is equal to \[ 2+\sum_{\substack{v\in V(T):\\d(v)\geq2}} (d(v)-2). \]
+
+\end{enumerate}
+
+
+\end{document}
+

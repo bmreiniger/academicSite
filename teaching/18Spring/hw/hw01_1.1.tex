@@ -1,0 +1,141 @@
+\documentclass[11pt]{amsart}
+    \topmargin -.5 in
+    \textheight 9.0in
+    \textwidth 6.25 in
+    \oddsidemargin 0 in
+    \evensidemargin 0 in
+   
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Homework 1: \S1.1 \qquad Due January 23}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+
+Turn in four of the following six problems to be graded.
+
+A graph is called \emph{$k$-regular} if every vertex has degree $k$.
+
+\begin{enumerate}
+
+\item For each $n$ from 3 to 9, determine whether $K_n$ decomposes into copies of $C_n$.  \textit{(A large number of these cases can be ruled out quickly.)}
+
+\item
+\begin{enumerate}
+\item Prove that if $G$ is $k$-regular and has girth at least 4, then $|V(G)|\geq 2k$.  Characterize such graphs with exactly $2k$ vertices.  \textit{(``Characterize'' means you need to find all such graphs; to justify that you have them all, you need to say that your listed graphs all work, and that no others do.  (In this particular question, the first part is easy, and the second part a little harder.))}
+
+\item Prove that if $G$ is $k$-regular and has girth at least 5, then $|V(G)|\geq k^2+1$.  Find an example with exactly $k^2+1$ vertices for each $k\in\{1,2,3\}$.
+\end{enumerate}
+
+\item Sort the following graphs into isomorphism classes.
+\begin{center}
+\begin{graph}
+\foreach \i in {0,1,2,3,4,5,6}
+{
+  \node[vertex] (v\i) at (90+360*\i/7:1) {};
+}
+\draw (v0)--(v1)--(v2)--(v3)--(v4)--(v5)--(v6)--(v0);
+\draw (v0)--(v2)--(v4)--(v6)--(v1)--(v3)--(v5)--(v0);
+\end{graph}
+\hfill
+\begin{graph}
+\node[vertex] (v0) at (90+360*0/7:1) {};
+\node[vertex] (v3) at (90+360*3/7:1) {};
+\node[vertex] (v6) at (90+360*5/7:1) {};
+\node[vertex] (v2) at (90+360*2/7:1) {};
+\node[vertex] (v5) at (90+360*6/7:1) {};
+\node[vertex] (v1) at (90+360*1/7:1) {};
+\node[vertex] (v4) at (90+360*4/7:1) {};
+\draw (v0)--(v1)--(v2)--(v3)--(v4)--(v5)--(v6)--(v0);
+\draw (v0)--(v2)--(v4)--(v6)--(v1)--(v3)--(v5)--(v0);
+\end{graph}
+\hfill
+%
+\begin{graph}
+\foreach \i in {0,1,2,3,4,5,6}
+{
+  \node[vertex] (v\i) at (90+360*\i/7:1) {};
+}
+\draw (v0)--(v1)--(v2)--(v3)--(v4)--(v5)--(v6)--(v0);
+\draw (v0)--(v3)--(v5)--(v1)--(v6)--(v2)--(v4)--(v0);
+\end{graph}
+\hfill
+\begin{graph}
+\node[vertex] (v0) at (0,0) {};
+\node[vertex] (v2) at (90+360*0/6:1) {};
+\node[vertex] (v5) at (90+360*3/6:1) {};
+\node[vertex] (v1) at (90+360*1/6:1) {};
+\node[vertex] (v3) at (90+360*5/6:1) {};
+\node[vertex] (v6) at (90+360*2/6:1) {};
+\node[vertex] (v4) at (90+360*4/6:1) {};
+\draw (v0)--(v1)--(v2)--(v3)--(v4)--(v5)--(v6)--(v0);
+\draw (v0)--(v3)--(v5)--(v1)--(v6)--(v2)--(v4)--(v0);
+\end{graph}
+\hfill
+%
+\begin{graph}
+\node[vertex] (v0) at (90+360*0/7:1) {};
+\node[vertex] (v3) at (90+360*2/7:1) {};
+\node[vertex] (v6) at (90+360*4/7:1) {};
+\node[vertex] (v2) at (90+360*6/7:1) {};
+\node[vertex] (v5) at (90+360*1/7:1) {};
+\node[vertex] (v1) at (90+360*3/7:1) {};
+\node[vertex] (v4) at (90+360*5/7:1) {};
+\draw (v0)--(v1)--(v2)--(v3)--(v4)--(v5)--(v6)--(v0);
+\draw (v0)--(v2)--(v4)--(v6)--(v1)--(v3)--(v5)--(v0);
+\end{graph}
+\end{center}
+
+
+
+\item Prove that the Petersen graph has no 7-cycles.  \textit{(Suppose it does, and use some properties of the Petersen graph to reach a contradiction.)}
+
+\item Prove that there is an $n$-vertex self-complementary graph if and only if $n\equiv 0\pmod 4$ or $n\equiv1\pmod4$.  \textit{(The ``only if'' part is straightforward.  The ``if'' part requires a construction, and there are many possible; perhaps the easiest is to generalize the structure of the smallest example, $P_4$.)}
+
+\item Let $G$ be a 3-regular simple graph.  Prove that $G$ decomposes into claws if and only if $G$ is bipartite.
+
+
+\vfill
+\begin{quotation}
+\footnotesize
+...
+``Then you should say what you mean,'' the March Hare went on.
+
+``I do,'' Alice hastily replied; ``at least--at least I mean what I say--that's the same thing, you know.''
+
+``Not the same thing a bit!'' said the Hatter. ``You might just as well say that `I see what I eat' is the same thing as `I eat what I see'!''
+
+``You might just as well say,'' added the March Hare, ``that `I like what I get' is the same thing as `I get what I like'!''
+
+``You might just as well say,'' added the Dormouse, who seemed to be talking in his sleep, ``that `I breathe when I sleep' is the same thing as `I sleep when I breathe'!''
+
+--\emph{Alice in Wonderland}
+\end{quotation}
+\end{enumerate}
+\end{document}
+

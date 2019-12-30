@@ -1,0 +1,415 @@
+\documentclass[addpoints,10pt]{exam}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{tikz}\usetikzlibrary{calc}
+%\usepackage{nth}
+%\usepackage{graphicx}
+%\usepackage{array}
+%\usepackage{fancyvrb}%for code snippets but with math text
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+\newcommand{\cp}{\mathbin\Box}
+
+
+%variables
+\newcommand{\theclass}{Math 454 -- Graph Theory}
+\newcommand{\themex}{1}
+\newcommand{\thedate}{March 8, 2018}
+
+\newcommand{\disp}{\displaystyle}
+%\newcommand{\powerset}{\mathcal{P}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+%set up the header and footer
+\pagestyle{headandfoot}
+\header{Exam \themex}{\theclass}{\thedate}
+\headrule
+\setlength{\headsep}{0.25in}
+\footer{}{Page \thepage}{}
+
+% Create a True False question format
+\newcommand*{\TrueFalse}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{T}}{%
+        \textbf{TRUE}\hspace*{14pt}False
+    }{
+        True\hspace*{14pt}\textbf{FALSE}
+    }
+\else
+    {True}\hspace*{20pt}False
+\fi
+} 
+\newlength\TFlengthA
+\newlength\TFlengthB
+\settowidth\TFlengthA{\hspace*{1.36in}}
+\newcommand\TFQuestion[2]{%
+    \setlength\TFlengthB{\linewidth}
+    \addtolength\TFlengthB{-\TFlengthA}
+    \parbox[t]{\TFlengthA}{\TrueFalse{#1}}\parbox[t]{\TFlengthB}{#2}}
+% Create a Yes No question format
+\newcommand*{\YesNo}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{y}}{%
+        \textbf{Yes}\hspace*{14pt}No
+    }{
+        Yes\hspace*{14pt}\textbf{NO}
+    }
+\else
+    {Yes}\hspace*{20pt}No
+\fi
+} 
+\newlength\YNlengthA
+\newlength\YNlengthB
+\settowidth\YNlengthA{\hspace*{1.16in}}
+\newcommand\YNQuestion[2]{%
+    \setlength\YNlengthB{\linewidth}
+    \addtolength\YNlengthB{-\YNlengthA}
+    \parbox[t]{\YNlengthA}{\YesNo{#1}}\parbox[t]{\YNlengthB}{#2}}
+
+
+%before a paragraph, to indent all but the first line:
+\newcommand{\hangpara}{
+ \setlength{\parindent}{0cm} % don't indent new paragraphs
+ \hangindent=0.7cm % indent all subsequent lines
+}
+
+\newcounter{savedqn}
+
+%print the answers (or not)
+%\printanswers
+
+\begin{document}
+
+\ifprintanswers
+\begin{center}
+	\textbf{Solutions}
+\end{center}
+\else
+\vspace*{1em}
+\makebox[0.9\textwidth]{Name: \hrulefill}
+
+\vspace{20pt}
+
+\begin{itemize}
+\item \textbf{READ THE FOLLOWING DIRECTIONS!}
+\item \textbf{Do NOT open the exam until instructed to do so.}
+\end{itemize}
+%\begin{minipage}[b][0.6\textheight][t]{0.65\textwidth}
+\begin{itemize}
+\item You have 
+%choose one:
+%until 12:45pm 
+seventy-five (75) minutes
+%
+to complete this exam.  When you are told to stop writing, do it or you will lose all points on the page(s) you write on.
+\item You may not communicate with other students during this test.
+\item Keep your eyes on your own paper.
+\item No written materials of any kind are allowed.  No scratch paper is allowed except as given by the proctor.
+\item No phones, calculators, or any other electronic devices are allowed for any reason, including checking the time (a simple wristwatch is fine).
+\item Any case of cheating will be taken extremely seriously.
+
+\bigskip
+
+\item Show all your work and explain your answers when appropriate.
+\item Before turning in your exam, check to make certain you've answered all the questions.
+
+\bigskip
+
+%\item There are ??????seven (7) pages of questions.  That gives you ????????a little over ten (10) minutes per page.  Later questions are generally longer than earlier ones.
+
+\end{itemize}
+%\end{minipage}
+%\hfill
+
+\vfill
+
+%\begin{minipage}[b][0.6\textheight][t]{0.3\textwidth}
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+%\end{minipage}
+
+%\vspace{40pt}
+%Some possibly useful formulas:
+%\begin{align*}
+% \iint_R (\del_x n - \del_y m ) \, dx \, dy = \int_a^b (m x' + n y' )\, dt \\
+% \cos^2 t = \frac{1}{2} (1+\cos(2t)) \\
+% \sin^2 t = \frac{1}{2} (1-\cos(2t))
+%\end{align*}
+
+
+%\newpage
+%\textbf{This page is left intentionally blank.}
+
+%You may use it for scratch work, but \textbf{do not} remove it.
+\newpage
+\fi
+
+
+\section*{Short answer}
+
+\begin{questions}
+
+\question[12] Determine whether the following two graphs are isomorphic.  (Give an isomorphism or a short argument why they are not isomorphic.)
+
+\begin{graph}
+\foreach \i in {0,1,...,9}
+{
+  \node[vertex] (v\i) at (36*\i:2) {};
+  \node at (36*\i:2.3) {\i};
+  \draw (v\i) to (180+36*\i:2);
+  \draw (v\i) to (36+36*\i:2);
+}
+\end{graph}
+\qquad
+\begin{graph}
+\foreach \i/\j in {0/a,1/b,2/c,3/d,4/e,5/f}
+{
+  \node[vertex] (\j) at (60*\i:2) {};
+  \node at (60*\i:2.3) {$\j$};
+  \draw (\j) to (60+60*\i:2);
+}
+\foreach \i/\j in {0/g,1/h,2/i,3/j}
+{
+  \node[vertex] (\j) at (45+90*\i:1) {};
+  \node at (45+90*\i:1.3) {$\j$};
+}
+\draw (a)--(j)--(e);
+\draw (f)--(i)--(d);
+\draw (i)--(g)--(h)--(j);
+\draw (c)--(h); \draw (b)--(g);
+\end{graph}
+
+\vfill
+
+\question[12] Decompose $K_5$ into one copy of each of the four trees below.
+
+\begin{graph}
+\node[vertex] (u) at (0,0) {}; \node[vertex] (v) at (1,0) {}; \draw (u)--(v);
+\end{graph}
+\qquad
+\begin{graph}
+\node[vertex] (v1) at (0,0) {};
+\node[vertex] (v2) at (0.5,1) {};
+\node[vertex] (v3) at (1,0) {};
+\draw (v1)--(v2)--(v3);
+\end{graph}
+\qquad
+\begin{graph}
+\node[vertex] (v1) at (0,0) {};
+\node[vertex] (v2) at (0.5,1) {};
+\node[vertex] (v3) at (1,0) {};
+\node[vertex] (v4) at (1.5,1) {};
+\draw (v1)--(v2)--(v3)--(v4);
+\end{graph}
+\qquad
+\begin{graph}
+\node[vertex] (v1) at (0,0) {};
+\node[vertex] (v2) at (0.5,0) {};
+\node[vertex] (v3) at (1,0) {};
+\node[vertex] (w) at (0.5,1) {};
+\node[vertex] (l) at (1.5,1) {};
+\draw (v1)--(w)--(v2);
+\draw (w)--(v3)--(l);
+\end{graph}
+
+%\question Find a graceful labeling of the following graph.  (Reminder: vertex labels $\{0,\dotsc,8\}$ that induce edge ``lengths'' $\{1,\dotsc,8\}$.)
+
+%\begin{graph}
+%\node[vertex] (u) at (0,0) {};
+%\foreach \i in {0,1,2}
+%{
+%  \node[vertex] (u\i) at (-1,1-\i) {};
+%  \draw (u\i) to (u);
+%}
+%\node[vertex] (v) at (1,0) {};
+%\foreach \i in {0,1,2,3}
+%{
+%  \node[vertex] (v\i) at (2,1-2/3*\i) {};
+%  \draw (v\i) to (v);
+%}
+%\draw (u)--(v);
+%\end{graph}
+
+\vfill
+
+\newpage
+
+\setcounter{savedqn}{\thequestion}
+\end{questions}
+
+\section*{Algorithms}
+Give brief justifications for your answers (but not necessarily full proofs; a computation with each step clearly written may suffice).
+
+\begin{questions}
+\setcounter{question}{\thesavedqn}
+
+\question[12] Determine whether the following sequences are graphic (the degree sequence of a simple graph).
+\begin{parts}
+\begin{minipage}{0.5\textwidth}
+\part 6 5 5 5 2 2 2 1 1
+% odd sum
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\part 6 5 5 5 2 2 2 1
+% 4 4 4 1 1 1 1
+% 3 3 1 1 0 0
+% 2 0 0 0 0
+\end{minipage}
+\vfill
+%\part 6 5 5 4 3 2 2 1
+% 4 4 3 2 1 1 1
+% 3 2 1 1 1 0
+% 1 1 0 0 0
+\end{parts}
+
+%\question
+%\begin{parts}
+%\part Find the Pr\"ufer code for the following tree.
+%
+%\begin{graph}[scale=1.25]
+%\node[vertex] (1) at (0,0) {}; \node at (0,-.3) {1};
+%\node[vertex] (2) at (0,1) {}; \node at (0,1.3) {2};
+%\node[vertex] (3) at (0.5,0.5) {};\node at (0.5,0.2) {3};
+%\node[vertex] (4) at (1,1) {}; \node at (1,1.3) {4};
+%\node[vertex] (5) at (1,0) {}; \node at (1,-.3) {5};
+%\node[vertex] (6) at (2,0) {}; \node at (2,-.3) {6};
+%\draw (1)--(3)--(2); \draw (4)--(3)--(5)--(6);
+%
+%\end{graph}
+%\part Find the tree with vertex set $[7]$ and Pr\"ufer code 62142.
+%\end{parts}
+
+\question[12] How many spanning trees does the following graph have?
+
+\begin{graph}[scale=1.25]
+\foreach \i in {0,1,2,3}
+{
+  \node[vertex] (v\i) at (45-90*\i:1) {};
+}
+\draw (v0)--(v1)--(v2)--(v3)--(v0);
+\draw (v0)--(v2);
+\draw[bend left] (v0) to (v1);
+\draw[bend left] (v1) to (v0);
+\draw[bend left] (v3) to (v0);
+\end{graph}
+
+\vfill 
+\newpage
+
+\question[12] \textit{Weighted graph algorithms}
+\begin{parts}
+\part Use either Kruskal's or Prim's algorithm to find a minimum spanning tree in the following weighted graph.
+
+\begin{graph}
+\node[vertex] (w) at (0,0) {};
+%i indexes the vertices, j is the "next" cycle edge, l is the spoke edge
+\foreach \i/\j/\l in {0/3/5,1/2/1,2/4/4,3/3/6,4/5/7,5/7/13}
+{
+  \node[vertex] (v\i) at (60*\i:2) {};
+  \draw (v\i)--(60*\i+60:2);
+  \node at (60*\i+30:1.9) {\j};
+  \draw (w)--(v\i);
+  \node at (60*\i+10:1) {\l};
+}
+\end{graph}
+\vfill
+\part Use Dijkstra's algorithm to find the minimum distances from the central vertex to each other vertex.
+\begin{graph}
+\node[vertex] (w) at (0,0) {};
+%i indexes the vertices, j is the "next" cycle edge, l is the spoke edge
+\foreach \i/\j/\l in {0/3/5,1/2/1,2/4/4,3/3/6,4/5/7,5/7/13}
+{
+  \node[vertex] (v\i) at (60*\i:2) {};
+  \draw (v\i)--(60*\i+60:2);
+  \node at (60*\i+30:1.9) {\j};
+  \draw (w)--(v\i);
+  \node at (60*\i+10:1) {\l};
+}
+\end{graph}
+\vfill
+
+\end{parts}
+
+\newpage
+
+\setcounter{savedqn}{\thequestion}
+\end{questions}
+
+\section*{Proofs}
+%\part A graph $G$ is bipartite if and only if $G\cp K_2$ is bipartite.
+%\part Find (with proof) the largest number of edges in a $C_4$-free subgraph of $Q_3$.
+%HOW TO PHRASE?  
+%Let $G$ be a connected weighted graph with an edge $e$ of weight zero (and every other edge having positive weight).  How are the problems MinSpTree, MinDist(u,v), ChinesePostman on $G$ related to those on $G-e$, $G\cdot e$, $G+(\text{copy of $e$ with weight 0})$, $G+(\text{copy of $e$ with positive weight})$?
+
+\begin{questions}
+\setcounter{question}{\thesavedqn}
+\question[20] \textit{Digraphs}
+\begin{parts}
+\part Prove that if $D$ is a digraph with $\delta^+(D)\geq1$, then $D$ has a (directed) cycle.
+\vfill\vfill
+\part Use the statement in part~(a) to prove that if $D$ is a digraph with $d^+(v)=d^-(v)$ at every vertex $v$, then $D$ decomposes into (directed) cycles.
+\vfill\vfill\vfill
+\end{parts}
+
+\newpage
+
+\question[40]
+Give complete careful proofs of \textbf{2 of the following 3} statements.  
+\begin{enumerate}[(i)]
+\item If $G$ is disconnected, then $\overline{G}$ is connected.
+\item 
+%2.1.3: 
+A graph is a tree if and only if it is loopless and has exactly one spanning tree.
+\item 
+%1.3.12, first part:  
+If $G$ is even (i.e., every vertex degree is even), then $G$ has no cut edge.
+%Three good proofs: (1) get Eulerian circuit (of every component), removing an edge yields Eulerian paths->connected; (2) decompose into cycles, again removing an edge preserves connectedness; (3) by degrees, if cut edge e, the components of G-e have exactly one odd vertex.
+\end{enumerate}
+
+\newpage
+
+(The statements are repeated here for your convenience.)
+\begin{enumerate}[(i)]
+\item If $G$ is disconnected, then $\overline{G}$ is connected.
+\item A graph is a tree if and only if it is loopless and has exactly one spanning tree.
+\item If $G$ is even (i.e., every vertex degree is even), then $G$ has no cut edge.
+\end{enumerate}
+
+
+
+
+
+%\ifprintanswers{}\else{
+\newpage
+\textbf{Scratch Paper - Do Not Remove}
+%\newpage
+%\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage
+%\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage
+%\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage
+%\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage\hspace{-1em}\includegraphics{Ch1Tables.pdf}
+%} \fi
+
+
+
+\end{questions}
+
+
+\end{document}
+

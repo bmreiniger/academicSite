@@ -1,0 +1,153 @@
+\documentclass[11pt]{amsart}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+
+%\hyphenation{WebAssign}%don't linebreak and hyphenate WebAssign
+
+\begin{document}
+\title{Math 454 \\-- Graph Theory and Applications --\\Spring 2018}
+\maketitle
+\thispagestyle{empty}
+
+\noindent\textbf{Meeting:}  TR 1:50--3:05
+
+\textbf{Classroom:}  Stuart Building, Room 239
+
+\noindent\textbf{Instructor:}  Dr.~Benjamin (``Ben'') Reiniger
+
+\textbf{Office:}  110 Rettaliata Engineering Building
+
+\textbf{Email:}  \texttt{breiniger{@}iit.edu} \qquad (please include ``Math454'' in your subject lines)
+
+\noindent\textbf{Website:}  Blackboard%; WebAssign, Piazza;
+
+%materials will later be archived to \href{http://www.math.iit.edu/~breiniger/teaching/18Spring/}{\texttt{www.math.iit.edu/$\sim$breiniger/teaching/18Spring}}
+
+\noindent\textbf{Problem-Solving Session:}  M 3:15--4:30 in RE258
+
+\noindent\textbf{Office Hours:}  T 11:25--12:40,  W 3:15--4:30
+
+I can often accommodate additional office hours by appointment.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\raggedright
+
+\vspace{10pt}
+
+\noindent \textbf{General Information:}  Graph theory began perhaps 150 years ago, but has exploded in usefulness with the digital age.  Graphs encode symmetric relations between objects (friendship between people, communication between computers, ...) and have a multitude of applications.  Our goal will be to introduce several of these applications and the theoretical mathematics that comes in to solve these types of problems.%  This course is just the beginning of graph theory, and we will try to indicate where further   We will mostly cover basic graph theory, but a few topics may brush against currently unsolved problems.
+
+As with most mathematics courses, we have a another goal: to develop your critical thinking skills.  In this class, this will mostly arise as reading, understanding, and writing proofs.
+
+\vspace{10pt}
+\noindent \textbf{Text:}   \textit{Introduction to Graph Theory}, Douglas B.~West, 2nd Edition.  Any printing of the 2nd Edition should be fine, including the newer cheaper paperback ``Classic Version.''%  My goal will be to cover most of the material not listed as ``optional.''
+
+%\vspace{10pt}
+%\noindent \textbf{Course Objectives:}
+%\begin{itemize}[leftmargin=2em]
+%\item Geometry of vectors and space (Chapter 12)
+%\begin{itemize}[leftmargin=1em]
+%\item Operations: compute and interpret sums, scalar multiples, dot products, cross products, and projections of vectors in the plane or in space
+%\item Objects: describe points, lines, planes, spheres, and other surfaces using equations, vectors, set notation, or geometric objects of a different kind
+%\end{itemize}
+%\item Parametric curves (Chapter 13)
+%\begin{itemize}[leftmargin=1em]
+%\item Parametrization: find parametrizations of lines, circles, and other curves
+%\item Calculus: compute and interpret the limit and derivatives of a vector-valued function; understand and compute Frenet frames and curvature; apply these in a physics context
+%\end{itemize}
+%\item Multivariate functions (Chapters 14, 15)
+%\begin{itemize}[leftmargin=1em]
+%\item Visualization: sketch or predict appearance of the graph of a function or curve based on a formula or other description; sketch or describe level sets of a function%; ??????use computer software to examine shapes of graphs
+%\item Limits: understand and compute limits of functions of more than one variable; determine continuity
+%\item Derivatives: compute and interpret partial derivatives and gradient of a function of 2 or 3 variables; apply and explain equality of mixed partial derivatives, including sufficient conditions for such equality to hold
+%\item Linearization: find tangent vectors, tangent lines, and tangent planes; understand the definition of differentiability; approximate curves and surfaces near a point
+%\item Optimization: use higher derivatives to collect data about shape of the graph of a function; classify critical points; use Lagrange multipliers; understand and use the Extreme Value Theorem for multivariate functions
+%\item Integral Calculus: accurately describe regions over which double or triple integrals are computed; perform calculations of double or triple integrals; apply and justify change-of-coordinate formulas, including spherical coordinates%; use computers to find integrals
+%\end{itemize}
+%\item Vector fields (Chapter 16)
+%\begin{itemize}[leftmargin=1em]
+%\item Visualization: sketch or predict appearance of a vector field
+%\item Derivatives: compute and interpret divergence and curl of a vector field
+%\end{itemize}
+%\item Line and surface integrals (Chapter 16)
+%\begin{itemize}[leftmargin=1em]
+%\item Parametrization: find parametrizations of planes, spheres, and other surfaces
+%\item Integration: compute line or surface integrals of scalar and vector fields; understand the components of such integrals; use these methods to find length, area, work, and flux
+%\end{itemize}
+%\item Classical theorems (Chapter 16)
+%\begin{itemize}[leftmargin=1em]
+%\item Integrability conditions: check conditions for a vector field to be irrotational or divergence-free, and explain the meaning of these conditions; find potential functions
+%\item Generalizations of FTC: explain the meaning and significance of Green's Theorem, Divergence Theorem, and Stokes's Theorem; use these to convert integrals between various forms, especially to make computation easier
+%\end{itemize}
+%\end{itemize}
+
+\vspace{10pt}
+\noindent \textbf{Grading:} 
+Your course grade will be obtained roughly as follows:\\ 30\% Homework and participation, 20\% Exam 1, 20\% Exam 2, 30\% Final Exam. \\
+The assignment of letter grades will be no more strict than the standard 10 point scale.
+
+Grading of all written work is based on the following criteria:
+\begin{itemize}
+  \item Content: correctness of the mathematical ideas.
+  \item Style: the explanations of your work, tidiness, conciseness.
+\end{itemize}
+Written work will be returned graded and commented.  If you have any questions or concerns about the grade or comments, contact me within a week for clarification/regrade.
+
+\vspace{10pt}
+\noindent \textbf{Late \& missed work:}  Late homework will generally not be accepted.  
+If you need to miss an exam, advance notice is vastly superior; if official documentation is provided, a conflict exam will be provided.
+
+\vspace{10pt}
+\noindent \textbf{Homework:}  Homework will ideally be assigned each week.
+
+You are encouraged to \textit{discuss} homework problems with anyone.  I would strongly suggest chatting first with your classmates.  \textit{Do not} seek out full, written solutions (especially online).
+
+However, \textit{writing} up solutions should be an individual effort.  This is the only way we can help you to develop your proof-writing skills.  Any violation of this policy will be pursued as seriously as any other cheating case.
+
+\vspace{10pt}
+\noindent \textbf{Exams:}  We will have two exams during the semester as well as a comprehensive final exam.  Exams will be taken without the aid of electronic devices, notes, or classmates.
+
+Exam dates will be announced in class, but expect them around mid/late February and the end of March.
+
+\vspace{10pt}
+\noindent\textbf{For help:}
+\begin{itemize}
+\item Classmates
+\item Me!  In-class, office hours, email, ...
+\item Applied Math TAs in RE129
+%\item Academic Resource Office, \href{http://arc.iit.edu}{arc.iit.edu}
+%\item Paul's Online Notes, \href{http://tutorial.math.lamar.edu/Classes/CalcIII/CalcIII.aspx}{tutorial.math.lamar.edu/Classes/CalcIII/CalcIII.aspx}
+\end{itemize}
+
+\vspace{10pt}
+\noindent\textbf{Attendance Policy:}  You are expected to attend every class meeting.  If you miss a meeting, you are responsible for catching up on the material.  
+For University-excused absences, contact me to determine appropriate accommodations.  Remember that you are responsible for all information that you miss; find a friend who has the notes.
+
+(See also \S ``Late \& missed work.'')
+
+\vspace{10pt}
+\noindent\textbf{Disabilities:}  Reasonable accommodations will be made for students with documented disabilities. In order to receive accommodations, students must obtain a letter of accommodation from the Center for Disability Resources.  Please also make an appointment with me to discuss implementation of accommodations.  If you will be taking an exam outside of normal class hours, I need at least 5 business days' notice to accommodate you.
+
+\vspace{10pt}
+\noindent\textbf{Academic Integrity:}
+Academic Integrity may be summed up by the phrase, ``your work
+must be your own.''  Violations will be processed according to the established guidelines. Please note that it is a violation ``to engage...in a course of action that would cause a reasonable student to conclude a violation...would be the likely result''.  
+A range of academic sanctions may be taken against a student who engages in academic dishonesty.
+Please see \href{https://web.iit.edu/student-affairs/handbook/fine-print/code-academic-honesty}{Article~I of the Handbook} for additional information and procedures.
+
+\vspace{10pt}
+\noindent \textbf{Decorum:}  
+During our meetings you should be respectful of everyone's time.  Please silence cell phones.  I don't mind if you bring food, but do so in a way that is not distracting to others.  Late arrivals and early departures are also disruptive.
+
+\vspace{10pt}
+\noindent \textbf{Feedback:}  You will have some opportunities during the semester to provide feedback on this class.  Please make use of these opportunities, and have thoughtful comments ready.  
+You don't need to wait for these opportunities: if you have suggestions/questions/comments, please let me know.
+
+\vspace{20pt}
+
+\emph{I look forward to working with all of you this semester.  Good luck!}
+
+
+\end{document}

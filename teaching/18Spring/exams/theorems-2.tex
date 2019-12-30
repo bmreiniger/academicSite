@@ -1,0 +1,97 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsthm,amsmath,amssymb}
+
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cp}{\mathbin\Box}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+\thispagestyle{empty}
+
+
+\begin{theorem}
+$\chi(G)\leq \chi_{\ell}(G)$.
+\end{theorem}
+
+\begin{theorem}
+If $H\subseteq G$, then $\chi(H)\leq \chi(G)$.
+
+Hence $\chi(G)\geq \omega(G)$.
+\end{theorem}
+
+\begin{theorem}
+$\chi(G)\geq n(G)/\alpha(G)$.
+\end{theorem}
+
+\begin{theorem}[greedy bounds]
+$\chi_{\ell}(G)\leq \Delta(G)+1$.
+
+If $G$ has degree sequence $d_1, \dotsc, d_n$, then $\chi_{\ell}(G)\leq 1+\max_i \min\{d_i, i-1\}$.
+
+$\chi_{\ell}(G)\leq 1+\max_{H\subseteq G} \delta(H)$.
+\end{theorem}
+
+\begin{theorem}
+If $D$ is an orientation of $G$ with longest path length $l(D)$, then $\chi(G)\leq 1+l(D)$.  Furthermore, equality is achieved for some orientation.
+\end{theorem}
+
+\begin{theorem}[Brooks]
+If $G$ is neither complete nor an odd cycle, then $\chi_{\ell}(G)\leq \Delta(G)$.
+\end{theorem}
+
+\begin{theorem}[Tur\'an]
+The balanced complete $k$-partite graph has the most edges among $K_{k+1}$-free simple graphs.
+\end{theorem}
+
+\begin{theorem}
+$G$ is $k$-critical if and only if it is connected, has $\chi(G)=k$, and $\chi(G-e)\leq k-1$ for every $e\in E(G)$.
+\end{theorem}
+
+\begin{theorem}
+The Mycielskian of $G$ is $(k+1)$-chromatic if $G$ is $k$-chromatic.  It is triangle free if $G$ is.  It is color-critical if $G$ is.
+\end{theorem}
+
+\begin{theorem}
+$\chi(G+H)=\max\{\chi(G),\chi(H)\}$.
+$\chi(G\vee H)=\chi(G)+\chi(H)$.
+$\chi(G\cp H)=\max\{\chi(G),\chi(H)\}$.
+
+$G\vee H$ is color-critical if both $G$ and $H$ are.
+\end{theorem}
+
+\hrule
+
+\begin{theorem}
+$M$ is a maximum matching if and only if there are no $M$-augmenting paths.
+\end{theorem}
+
+\begin{theorem}[Hall]
+An $X,Y$-bigraph has a matching saturating $X$ if and only if for every $S\subseteq X$, $|S|\leq |N(S)|$.
+\end{theorem}
+\begin{theorem}
+Every nontrivial regular bigraph has a perfect matching.
+\end{theorem}
+
+\begin{theorem}[weak duality]
+Always $\alpha'(G)\leq \beta(G)$.
+\end{theorem}
+\begin{theorem}[K\"onig-Egerv\'ary]
+If $G$ is bipartite, then $\alpha'(G)=\beta(G)$.
+\end{theorem}
+
+\begin{theorem}[Tutte]
+$G$ has a perfect matching if and only if for every $S\subseteq V(G)$, $|S|\geq o(G-S)$.
+\end{theorem}
+\begin{theorem}
+Every 3-regular graph without a cut edge has a perfect matching.
+\end{theorem}
+\begin{theorem}
+Every nontrivial even regular graph has a 2-factor.
+\end{theorem}
+
+
+\end{document}

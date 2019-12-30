@@ -1,0 +1,87 @@
+\documentclass[11pt]{amsart}
+    \topmargin -.5 in
+    \textheight 9.0in
+    \textwidth 6.25 in
+    \oddsidemargin 0 in
+    \evensidemargin 0 in
+   
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Homework 2: \S1.1,1.2 \qquad Due February 1}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+
+Turn in four of the following six problems to be graded.
+
+\begin{enumerate}
+
+\item 1.1.17.  Determine all isomorphism classes of simple 4-regular 7-vertex graphs.  \textit{(See also HW1\#3.)}
+
+\item 1.2.7.  Prove that a bipartite graph has a unique bipartition (except for interchanging the two partite sets) if and only if it is connected.
+
+\item 1.2.28ish.  In each graph below, find a bipartite subgraph with the maximum number of edges.  Prove that this is the maximum, and determine whether yours is the only bipartite subgraph with this many edges.
+\begin{center}
+\begin{graph}
+\foreach \i in {1,2,3,4,5,6}
+{ \node[vertex] (v\i) at (\i,0) {}; }
+\node[vertex] (t) at (4,1) {};
+\node[vertex] (b) at (3,-1) {};
+\draw (v1)--(v6)--(t)--(v1)--(b)--(v6); \draw (v4)--(t);  \draw (v3)--(b);
+\end{graph}
+\qquad
+\begin{graph}
+\foreach \i in {1,2,3,4,5,6}
+{
+  \node[vertex] (b\i) at (\i,0) {};
+  \node[vertex] (c\i) at (\i,1) {};
+  \draw (b\i)--(c\i);
+}
+\node[vertex] (t1) at (1.5,2) {};
+\node[vertex] (t3) at (3.5,2) {};
+\node[vertex] (t5) at (5.5,2) {};
+\draw (b1)--(b2)--(b3)--(b4)--(b5)--(b6);
+\draw (c2)--(c3); \draw (c4)--(c5);
+\draw (c1)--(t1)--(c2); \draw (c3)--(t3)--(c4); \draw (c5)--(t5)--(c6);
+\draw (t1)--(t3)--(t5);
+\end{graph}
+\end{center}
+
+\item 1.2.29.  Let $G$ be a connected simple graph not having $P_4$ or $C_3$ as an induced subgraph.  Prove that $G$ is a complete bipartite graph.
+
+\item 1.2.39.  Let $G$ be a loopless graph with $\delta(G)\geq3$.  Prove that $G$ contains an even cycle.
+
+\item 1.2.40.  Let $P$ and $Q$ be paths of maximum length in a connected graph $G$.  Prove that $P$ and $Q$ have a common vertex.
+
+\vfill
+\begin{quotation}
+\footnotesize
+\end{quotation}
+\end{enumerate}
+\end{document}
+

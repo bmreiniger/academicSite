@@ -1,0 +1,75 @@
+\documentclass[11pt]{amsart}%10pt for solutions
+\usepackage[margin=1in]{geometry}
+  
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+\newcommand{\cp}{\mathbin\Box}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Math 454\\ Homework 9 %Solutions 
+\qquad Due April 5%<---removeforsolutions
+}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+%remove for solutions:
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+Turn in four of the following problems to be graded.
+\bigskip
+%-----/remove for solutions
+
+\begin{enumerate}
+%\item (3.1.9) or maybe exam?
+%\item 3.1.19 for exam too
+%exam: \item (3.3.10) For every graph $G$, prove that $\beta(G)\leq 2\alpha'(G)$.  For each $k\in\mathbb{N}$, construct a simple graph $G$ with $\alpha'(G)=k$ and $\beta(G)=2k$.
+
+
+\item In a particular class, there are $k$ students who will each complete a project.  There are $k$ projects to select from, and each student submits a list of three projects they would like to work on.  You (the instructor) want the students to each take on a different project, subject to their preferences.
+\begin{enumerate}
+\item If every project is listed by three students, prove that you can assign projects as desired.
+\item Before you have actually made the assignments, one student says that they \emph{really} would like one of the projects in particular (that was on their list).  Are you guaranteed to be able to assign projects to accommodate this student (while still satisfying the constraints above)?  Prove that you can, or provide a situation in which you cannot.
+\end{enumerate}
+
+\item (3.1.13) Let $M$ and $M'$ be matchings in an $X,Y$-bigraph $G$.  Suppose that $M$ saturates $S\subseteq X$ and that $M'$ saturates $T\subseteq Y$.  Prove that $G$ has a matching that saturates $S\cup T$.  \textit{(Hint: consider $M\triangle M'$.)}
+
+\item (3.1.29) Use the K\"onig-Egerv\'ary Theorem to prove that every bipartite graph $G$ has a matching of size at least $e(G)/\Delta(G)$.  Use this to conclude that every subgraph of $K_{n,n}$ with more than $(k-1)n$ edges has a matching of size at least $k$.
+
+\item (3.3.16) Let $G$ be a $k$-regular, $(k-1)$-edge-connected graph of even order.  Prove that $G$ has a 1-factor.
+
+\item (3.3.19) Let $G$ be a 3-regular simple graph with no cut-edge.  Prove that $G$ decomposes into copies of $P_4$.  \textit{(Hint: such a $G$ has a perfect matching $M$ (Cor~3.3.8); build the $P_4$s with one $M$-edge and two non-$M$-edges.)}
+
+\item (3.3.23b) Let $G$ be a claw-free connected graph of even order.  Prove that $G$ has a 1-factor.  \textit{(Use induction to prove the stronger conclusion that the last edge in a longest path belongs to a 1-factor.)}
+%\item (3.1.20)
+
+\end{enumerate}
+
+
+\end{document}
+

@@ -1,0 +1,519 @@
+\documentclass[addpoints,10pt]{exam}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{tikz}\usetikzlibrary{calc,decorations.markings,arrows.meta}
+%\usepackage{nth}
+%\usepackage{graphicx}
+%\usepackage{array}
+%\usepackage{fancyvrb}%for code snippets but with math text
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+\newcommand{\cp}{\mathbin\Box}
+
+
+%variables
+\newcommand{\theclass}{Math 454 -- Graph Theory}
+%\newcommand{\themex}{2}
+\newcommand{\thedate}{May 3, 2018}
+
+\newcommand{\disp}{\displaystyle}
+%\newcommand{\powerset}{\mathcal{P}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+%set up the header and footer
+\pagestyle{headandfoot}
+\header{Final Exam}{\theclass}{\thedate}
+\headrule
+\setlength{\headsep}{0.25in}
+\footer{}{Page \thepage}{}
+
+% Create a True False question format
+\newcommand*{\TrueFalse}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{T}}{%
+        \textbf{TRUE}\hspace*{14pt}False
+    }{
+        True\hspace*{14pt}\textbf{FALSE}
+    }
+\else
+    {True}\hspace*{20pt}False
+\fi
+} 
+\newlength\TFlengthA
+\newlength\TFlengthB
+\settowidth\TFlengthA{\hspace*{1.36in}}
+\newcommand\TFQuestion[2]{%
+    \setlength\TFlengthB{\linewidth}
+    \addtolength\TFlengthB{-\TFlengthA}
+    \parbox[t]{\TFlengthA}{\TrueFalse{#1}}\parbox[t]{\TFlengthB}{#2}}
+% Create a Yes No question format
+\newcommand*{\YesNo}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{y}}{%
+        \textbf{Yes}\hspace*{14pt}No
+    }{
+        Yes\hspace*{14pt}\textbf{NO}
+    }
+\else
+    {Yes}\hspace*{20pt}No
+\fi
+} 
+\newlength\YNlengthA
+\newlength\YNlengthB
+\settowidth\YNlengthA{\hspace*{1.16in}}
+\newcommand\YNQuestion[2]{%
+    \setlength\YNlengthB{\linewidth}
+    \addtolength\YNlengthB{-\YNlengthA}
+    \parbox[t]{\YNlengthA}{\YesNo{#1}}\parbox[t]{\YNlengthB}{#2}}
+
+
+%before a paragraph, to indent all but the first line:
+\newcommand{\hangpara}{
+ \setlength{\parindent}{0cm} % don't indent new paragraphs
+ \hangindent=0.7cm % indent all subsequent lines
+}
+
+\newcounter{savedqn}
+
+%print the answers (or not)
+%\printanswers
+
+\begin{document}
+
+\ifprintanswers
+\begin{center}
+	\textbf{Solutions}
+\end{center}
+\else
+\vspace*{1em}
+\makebox[0.9\textwidth]{Name: \hrulefill}
+
+\vspace{20pt}
+
+\begin{itemize}
+\item \textbf{READ THE FOLLOWING DIRECTIONS!}
+\item \textbf{Do NOT open the exam until instructed to do so.}
+\end{itemize}
+%\begin{minipage}[b][0.6\textheight][t]{0.65\textwidth}
+\begin{itemize}
+\item You have 
+%choose one:
+%until 12:45pm 
+two hours
+%
+to complete this exam.  When you are told to stop writing, do it or you will lose all points on the page(s) you write on.
+\item You may not communicate with other students during this test.
+\item Keep your eyes on your own paper.
+\item No written materials of any kind are allowed.  No scratch paper is allowed except as given by the proctor.
+\item No phones, calculators, or any other electronic devices are allowed for any reason, including checking the time (a simple wristwatch is fine).
+\item Any case of cheating will be taken extremely seriously.
+
+\bigskip
+
+\item Show all your work and explain your answers when appropriate.
+\item Before turning in your exam, check to make certain you've answered all the questions.
+
+\bigskip
+
+%\item There are ??????seven (7) pages of questions.  That gives you ????????a little over ten (10) minutes per page.  Later questions are generally longer than earlier ones.
+
+\end{itemize}
+%\end{minipage}
+%\hfill
+
+\vfill
+
+%\begin{minipage}[b][0.6\textheight][t]{0.3\textwidth}
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+%\end{minipage}
+
+%\vspace{40pt}
+%Some possibly useful formulas:
+%\begin{align*}
+% \iint_R (\del_x n - \del_y m ) \, dx \, dy = \int_a^b (m x' + n y' )\, dt \\
+% \cos^2 t = \frac{1}{2} (1+\cos(2t)) \\
+% \sin^2 t = \frac{1}{2} (1-\cos(2t))
+%\end{align*}
+
+
+%\newpage
+%\textbf{This page is left intentionally blank.}
+
+%You may use it for scratch work, but \textbf{do not} remove it.
+\newpage
+\fi
+
+
+\section*{Short answer}
+\begin{questions}
+
+
+\question[20] Find all maximal paths, independent sets, cliques, paths, and matchings in the below graph.
+\begin{minipage}{0.6\textwidth}
+\vspace{1em}
+\begin{enumerate}[(i)]
+\item Maximal independent sets:
+\vspace{3em}
+\item Maximal cliques:
+\vspace{3em}
+\item Maximal paths:
+\vspace{3em}
+\item Maximal matchings:
+\vspace{3em}
+\end{enumerate}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{center}
+\begin{graph}
+\foreach \i in {0,1,2}
+{
+  \node[vertex] (v\i) at (120*\i:1) {};
+}
+\node[vertex,label={$d$}] (w) at (0:2.5) {};
+\node[label={$a$}] at (v1) {};
+\node[label=below:{$b$}] at (v2) {};
+\node[label={$c$}] at (v0) {};
+\draw (w)--(v0)--(v1)--(v2)--(v0);
+\end{graph}
+\end{center}
+\end{minipage}
+
+%7.1.1
+\question[16] Determine $\chi'(G)$ and $\chi'(H)$.  \textit{(A theorem gives the answer for $H$ quickly, but $G$ requires some argument.)}
+\begin{center}
+\begin{graph}
+\foreach \i in {0,1,2}
+{
+  \node[vertex] (v\i) at (90+120*\i:2) {};
+  \node[vertex] (w\i) at (30+120*\i:1) {};
+}
+\draw (w0)--(v0)--(w1)--(v1)--(w2)--(v2)--(w0);
+\draw (w0)--(w1)--(w2)--(w0);
+\node at (0,-1.75) {$G$};
+\end{graph}
+\qquad\qquad
+\begin{graph}
+\foreach \i in {0,1,2}
+{
+  \node[vertex] (u\i) at (2*\i,0) {};
+  \node[vertex] (v\i) at (2*\i,2.5) {};
+}
+\foreach \i in {0,1,2}
+{
+  \foreach \j in {0,1,2}
+  {
+    \draw (u\i) to[bend left=10] (v\j);
+    \draw (u\i) to[bend right=10] (v\j);
+  }
+}
+\node at (2,-0.75) {$H$};
+\end{graph}
+\end{center}
+
+\pagebreak
+
+\question[18] For each of the following, determine whether such a graph exists.  If it does, give an example; if not, give a brief reason why not.
+\begin{parts}
+\part a 3-connected 4-regular planar graph
+\vspace{10em}
+\part a 4-connected 3-regular planar graph
+\vspace{10em}
+\part a 6-connected planar graph
+\vspace{10em}
+\end{parts}
+%\question Use the Four Color Theorem to prove that every planar graph decomposes into two bipartite graphs.  \textit{(Hint: start with a coloring, and consider for each edge the sum of its endpoints' colors.)}
+\question[10] Decompose the following planar graph into two bipartite graphs.  \textit{(Hint: this can always be done, using the Four Color Theorem and considering, for each edge, the sum its endpoints' colors.)}
+\begin{center}
+\begin{graph}[scale=2]
+%\foreach \i in {0,1,...,4}
+%{
+%  \node[vertex] (v\i) at (90+72*\i:3) {};
+%}
+%\foreach \j in {1,2,3}
+%{
+%  \node[vertex] (u\j) at (270+120*\j:1) {};
+%}
+\node[vertex] (v0) at (1,1.5) {};
+\node[vertex] (v1) at (0,2) {};
+\node[vertex] (v2) at (0,0) {};
+\node[vertex] (v3) at (2,0) {};
+\node[vertex] (v4) at (2,2) {};
+\node[vertex] (u1) at (1.5,1) {};
+\node[vertex] (u2) at (0.5,1) {};
+\node[vertex] (u3) at (1,0.5) {};
+\draw (v0)--(v1)--(v2)--(v3)--(v4)--(v0);   \draw (u1)--(u2)--(u3)--(u1);
+\draw (v4)--(u1)--(v0)--(u2)--(v1);
+\draw (u2)--(v2)--(u3)--(v3)--(u1);
+\draw (v1)--(v4);
+\end{graph}
+%OCTAHEDRON:   (3-colorable, meh)
+%\begin{graph}
+%\foreach \i in {0,1,2}
+%{
+%  \node[vertex] (w\i) at (30+120*\i:0.5) {};
+%  \node[vertex] (v\i) at (90+120*\i:2) {};
+%}
+%\draw (w0)--(w1)--(w2)--(w0);  \draw (v0)--(v1)--(v2)--(v0);
+%\draw (w0)--(v0)--(w1)--(v1)--(w2)--(v2)--(w0);
+%\end{graph}
+\end{center}
+\vfill
+\pagebreak
+
+\setcounter{savedqn}{\thequestion}
+\end{questions}
+\section*{Algorithms}
+Give brief justifications for your answers (but not necessarily full proofs; a computation with each step clearly written may suffice).
+\begin{questions}
+\setcounter{question}{\thesavedqn}
+
+
+\question Consider the degree sequence $6,6,6,4,3,3,3,3$.
+\begin{parts}
+\part[10] Prove that every simple graph with this degree sequence is 4-colorable.
+\vfill
+\part[10] Find one simple graph with this degree sequence and a 4-coloring of it.
+\vfill
+\part (8 \textbf{bonus}) Prove that every simple graph with this degree sequence has chromatic number at least~3.
+\vfill
+\end{parts}
+%\leq 4 by greedy; cannot be bipartite because only one degree not divisible by 3
+%oh, or: it would have 17>16=4*4 edges
+%is graphic?  5533222, 422211, 11110, yep
+
+\pagebreak
+
+\question[10] Let $G$ be a weighted graph in which every edge has positive weight, and let $T^*$ be a minimum spanning tree.  An edge $e$ with weight zero is added to $G$; describe how to modify $T^*$ to obtain a minimum spanning tree of $G+e$.%  (Briefly justify.)
+
+\pagebreak
+
+\question[12] Apply the Ford-Fulkerson algorithm to augment the feasible flow below to a maximum feasible flow.  (Explain how you know the result is maximum.)  \textit{(The network is redrawn for your convenience.)}
+
+\begin{graph}[xscale=3,yscale=2]
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{Latex[scale=1.5]}}},postaction={decorate}}}
+\node[vertex,label=left:{$s$}] (s) at (0,0) {};
+\node[vertex] (a1) at (1,1) {};  \node[vertex] (a2) at (1,0) {};  \node[vertex] (a3) at (1,-1) {};
+\node[vertex] (b1) at (2,1.5) {}; \node[vertex] (b2) at (2,0.5) {}; \node[vertex] (b3) at (2,-.5) {}; \node[vertex] (b4) at (2,-1.5) {};
+\node[vertex] (c1) at (3,1) {}; \node[vertex] (c2) at (3,0) {}; \node[vertex] (c3) at (3,-1) {};
+\node[vertex,label=right:{$t$}] (t) at (4,0) {};
+\foreach \t/\h/\f/\c/\p in {%tail / head / flow / capacity
+  s/a1/4/4/above left,
+  s/a2/2/6/above,
+  s/a3/3/5/below left,
+  a1/b1/3/3/above,
+  a1/a2/1/1/left,
+  a2/b1/1/2/left,
+  a2/b2/0/1/above,
+  a2/b3/2/5/below,
+  a2/a3/0/2/above left,
+  a3/b3/0/4/below right,
+  a3/b4/3/5/below left,
+  b1/c1/4/4/above,
+  b2/c1/1/1/above,
+  b2/c2/0/6/below,
+  b3/b2/1/4/left,
+  b3/c2/0/2/below right,
+  b3/c3/1/1/below left,
+  b4/c3/3/3/below right,
+  c1/c2/1/2/left,
+  c1/t/4/6/above right,
+  c2/t/1/1/above,
+  c3/t/4/7/below right}
+{  \draw[->-=0.6] (\t) to node[\p]{$\f/\c$} (\h);  }
+\end{graph}
+
+\vfill
+\begin{graph}[xscale=3,yscale=2]
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{Latex[scale=1.5]}}},postaction={decorate}}}
+\node[vertex,label=left:{$s$}] (s) at (0,0) {};
+\node[vertex] (a1) at (1,1) {};  \node[vertex] (a2) at (1,0) {};  \node[vertex] (a3) at (1,-1) {};
+\node[vertex] (b1) at (2,1.5) {}; \node[vertex] (b2) at (2,0.5) {}; \node[vertex] (b3) at (2,-.5) {}; \node[vertex] (b4) at (2,-1.5) {};
+\node[vertex] (c1) at (3,1) {}; \node[vertex] (c2) at (3,0) {}; \node[vertex] (c3) at (3,-1) {};
+\node[vertex,label=right:{$t$}] (t) at (4,0) {};
+\foreach \t/\h/\f/\c/\p in {%tail / head / flow / capacity
+  s/a1/4/4/above left,
+  s/a2/2/6/above,
+  s/a3/3/5/below left,
+  a1/b1/3/3/above,
+  a1/a2/1/1/left,
+  a2/b1/1/2/left,
+  a2/b2/0/1/above,
+  a2/b3/2/5/below,
+  a2/a3/0/2/above left,
+  a3/b3/0/4/below right,
+  a3/b4/3/5/below left,
+  b1/c1/4/4/above,
+  b2/c1/1/1/above,
+  b2/c2/0/6/below,
+  b3/b2/1/4/left,
+  b3/c2/0/2/below right,
+  b3/c3/1/1/below left,
+  b4/c3/3/3/below right,
+  c1/c2/1/2/left,
+  c1/t/4/6/above right,
+  c2/t/1/1/above,
+  c3/t/4/7/below right}
+{  \draw[->-=0.6] (\t) to node[\p]{$\,\,/\c$} (\h);  }
+\end{graph}
+
+\vfill
+\begin{graph}[xscale=3,yscale=2]
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{Latex[scale=1.5]}}},postaction={decorate}}}
+\node[vertex,label=left:{$s$}] (s) at (0,0) {};
+\node[vertex] (a1) at (1,1) {};  \node[vertex] (a2) at (1,0) {};  \node[vertex] (a3) at (1,-1) {};
+\node[vertex] (b1) at (2,1.5) {}; \node[vertex] (b2) at (2,0.5) {}; \node[vertex] (b3) at (2,-.5) {}; \node[vertex] (b4) at (2,-1.5) {};
+\node[vertex] (c1) at (3,1) {}; \node[vertex] (c2) at (3,0) {}; \node[vertex] (c3) at (3,-1) {};
+\node[vertex,label=right:{$t$}] (t) at (4,0) {};
+\foreach \t/\h/\f/\c/\p in {%tail / head / flow / capacity
+  s/a1/4/4/above left,
+  s/a2/2/6/above,
+  s/a3/3/5/below left,
+  a1/b1/3/3/above,
+  a1/a2/1/1/left,
+  a2/b1/1/2/left,
+  a2/b2/0/1/above,
+  a2/b3/2/5/below,
+  a2/a3/0/2/above left,
+  a3/b3/0/4/below right,
+  a3/b4/3/5/below left,
+  b1/c1/4/4/above,
+  b2/c1/1/1/above,
+  b2/c2/0/6/below,
+  b3/b2/1/4/left,
+  b3/c2/0/2/below right,
+  b3/c3/1/1/below left,
+  b4/c3/3/3/below right,
+  c1/c2/1/2/left,
+  c1/t/4/6/above right,
+  c2/t/1/1/above,
+  c3/t/4/7/below right}
+{  \draw[->-=0.6] (\t) to node[\p]{$\,\,/\c$} (\h);  }
+\end{graph}
+
+
+\pagebreak
+
+\question[12] Find the maximum number of edges in a bipartite planar subgraph of the Petersen graph. \\  \textit{(Hint: use the idea behind the generic planar edge bound; what face lengths can such a subgraph have?  For the construction, use that information about face lengths to choose a good drawing of the Petersen graph to modify.  The three most common drawings are given at the bottom of the page.)}
+
+\vfill
+
+\begin{center}
+\begin{graph}
+\tikzstyle{every path}=[dotted]
+\foreach \i in {1,2,3,4,5}
+{
+  \node[vertex] (u\i) at (90+72*\i:1) {};
+  \node[vertex] (v\i) at (90+72*\i:2) {};
+  \draw (u\i)--(v\i);
+}
+\draw (u1) to (u3) to (u5) to (u2) to (u4) to (u1);
+\draw (v1)--(v2)--(v3)--(v4)--(v5)--(v1);
+\end{graph}
+\qquad\qquad
+\begin{graph}
+\tikzstyle{every path}=[dotted]
+\node[vertex] (w) at (0,0) {};
+\foreach \i in {1,2,3,4,5,6}
+{
+  \node[vertex] (v\i) at (-60+60*\i:2) {};
+  \node[vertex] (u\i) at (30-120*\i:1) {};
+  \draw (v\i)--(u\i)--(w);
+}
+\draw (v1)--(v2)--(v3)--(v4)--(v5)--(v6)--(v1);
+\end{graph}
+\qquad\qquad
+\begin{graph}
+\tikzstyle{every path}=[dotted]
+\node[vertex] (w) at (0,0) {};
+\foreach \i in {1,2,...,9}
+{
+  \node[vertex] (v\i) at (50+40*\i:2) {};
+}
+\draw (v1)--(v2)--(v3)--(v4)--(v5)--(v6)--(v7)--(v8)--(v9)--(v1);
+\draw (w)--(v1); \draw (w)--(v4); \draw (w)--(v7);
+\draw (v2)--(v6); \draw (v3)--(v8); \draw (v5)--(v9);
+\end{graph}
+\end{center}
+
+\pagebreak
+
+
+\setcounter{savedqn}{\thequestion}
+\end{questions}
+%\pagebreak
+\section*{Proofs}
+\begin{questions}
+\setcounter{question}{\thesavedqn}
+
+
+%\part A graph $G$ is bipartite if and only if $G\cp K_2$ is bipartite.
+%\part Find (with proof) the largest number of edges in a $C_4$-free subgraph of $Q_3$.
+
+\question[20] Let $G$ be $k$-connected, $x\in V(G)$, and $U\subseteq V(G)\setminus\{x\}$ with $|U|=k$.  Prove that there are $k$ paths from $x$ to $U$ that share only the vertex $x$.  \textit{(Hint: Use the Expansion Lemma and Menger's Theorem.)}
+
+\pagebreak
+
+\question[20] Prove that every outerplanar graph is 3-colorable.  \textit{(Hint: there is an easy proof using the Four Color Theorem (a bit of overkill), and another proof similar to that of the Six Color Theorem.)}
+%from 4 color theorem, by adding a dominating vertex  OR  degeneracy
+
+
+\pagebreak
+\question[20] Prove that for $k\geq2$, the hypercube $Q_k$ is Hamiltonian.
+%\question[20] If $G$ and $H$ are both Hamiltonian, then $G\cp H$ is also Hamiltonian.  \textit{(Hint: name/draw the vertices of $G$ and $H$ in order along their Hamiltonian cycles.  Consider cases for the parity of the number of vertices in $H$.)}
+
+%\question %3.1.19
+%....system of distinct representatives....
+
+
+%(The next are probably better as T/F, with just short justification)
+%\question %5.1.12
+%Prove or disprove: every optimal coloring of $G$ has a color class of size $\alpha(G)$.
+%Prove or disprove: every $k$-chromatic graph $G$ has a proper $k$-coloring with a color class of size $\alpha(G)$.
+%\question %5.1.15
+%Prove or disprove: if $a$ is the average degree of $G$, then $\chi(G)\leq 1+a$.
+
+\end{questions}
+
+
+
+
+%\ifprintanswers{}\else{
+%\newpage
+%\textbf{Scratch Paper - Do Not Remove}
+\newpage
+\textbf{Scratch Paper} - you may remove this if you find it convenient
+\newpage
+\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage
+%\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage
+%\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage\hspace{-1em}\includegraphics{Ch1Tables.pdf}
+%} \fi
+
+
+
+
+
+\end{document}
+

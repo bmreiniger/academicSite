@@ -1,0 +1,93 @@
+\documentclass[11pt]{amsart}%10pt for solutions
+\usepackage[margin=1in]{geometry}
+  
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Math 454\\ Homework 6 %Solutions 
+\qquad Due March 1%<---removeforsolutions
+}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+%remove for solutions:
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+Turn in four of the following problems to be graded.
+\bigskip
+%-----/remove for solutions
+
+\begin{enumerate}
+%\item (2.2.31 ish) graceful caterpillars
+\item (2.2.23) Assume for this problem that the Graceful Tree Conjecture is true.  Let $T$ be a tree with $m$ edges.  Show that $K_{2m}$ decomposes into copies of~$T$.  \textit{(Hint: modify the construction that decomposes $K_{2m-1}$ into copies of a tree with $m-1$ edges.)}
+\item (2.2.10, first part) Find $\tau(K_{2,n})$.
+\item (2.2.12) From a graph $G$, let $G^{(k)}$ be obtained by replacing each edge by $k$ copies of that edge; and let $G^{1/k}$ be obtained by replacing each edge $uv$ by a $u,v$-path of length $k$ through $k-1$ new vertices.  Determine $\tau(G^{(k)})$ and $\tau(G^{1/k})$ in terms of $\tau(G)$, $k$, $n(G)$, and $e(G)$.  \textit{(Below are examples of these constructions.)}
+\begin{center}
+\begin{graph}
+\foreach \i in {1,2,3,4} {\node[vertex] (v\i) at (135-90*\i:1) {}; }
+\foreach \i/\j in {1/2,2/3,3/4,4/1,1/3}
+{
+  \draw (v\i)--(v\j);
+}
+\draw (v3) to[bend left] (v4);
+\node at (0,-1.25) {$G$};
+\end{graph}
+\qquad
+\begin{graph}
+\foreach \i in {1,2,3,4} {\node[vertex] (v\i) at (135-90*\i:1) {}; }
+\foreach \i/\j in {1/2,2/3,3/4,4/1,1/3}
+{
+  \draw (v\i) to[bend left](v\j);
+  \draw (v\i) to (v\j);
+}
+\draw (v3) to[bend right] (v4);
+\draw (v3) to[out=150, in=210] (v4);
+\node at (0,-1.25) {$G^{(2)}$};
+\end{graph}
+\qquad
+\begin{graph}
+\foreach \i in {1,2,3,4} {\node[vertex] (v\i) at (135-90*\i:1) {}; }
+\foreach \i/\j in {1/2,2/3,3/4,4/1,1/3}
+{
+  \draw (v\i) -- (v\j) node[midway,vertex] {};
+}
+\draw (v3) to [bend left] node[midway,vertex] {} (v4);
+\node at (0,-1.25) {$G^{1/2}$};
+\end{graph}
+\end{center}
+\item (2.3.10) \textbf{Prim's Algorithm} grows a spanning tree from a given vertex of a connected weighted graph $G$, iteratively adding the cheapest edge from a vertex already reached to a vertex not yet reached, finishing when all the vertices of $G$ have been reached.  Prove that Prim's Algorithm produces a minimum-weight spanning tree of $G$.
+\item (2.3.12) \textit{Minimum spanning path.}  In a weighted complete graph, iteratively select the edge of least weight such that the edges selected so far form a disjoint union of paths.  After $n-1$ steps, the result is a spanning path.  This greedy algorithm \emph{does not} always produce a minimum-weight spanning path; provide an infinite family of weighted complete graphs for which the algorithm produces a suboptimal spanning path.
+\item (2.3.16) Four people must cross a canyon at night on a fragile bridge.  At most two people can be on the bridge at once.  Crossing requires carrying a flashlight, and there is only one flashlight (which can only cross by being carried).  Alone, the four people cross in 10, 5, 2, 1 minutes, respectively.  When two cross together, they move at the speed of the slower person.  In 18 minutes, a flash flood coming down the canyon will wash away the bridge.  Can the four people get across in time?  Describe how the answer can be found using graph theory.
+
+\end{enumerate}
+
+
+\end{document}
+

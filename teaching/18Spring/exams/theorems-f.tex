@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{enumerate}
+
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\cp}{\mathbin\Box}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+
+\begin{document}
+\thispagestyle{empty}
+
+
+\begin{theorem}
+If $G$ is simple, then $\kappa(G)\leq \kappa'(G)\leq \delta(G)$.
+\end{theorem}
+\begin{theorem}
+If $G$ is 3-regular and simple, then $\kappa(G)=\kappa'(G)$.
+\end{theorem}
+
+\begin{theorem}
+If $n(G)\geq3$, then the following are equivalent:
+\vspace{-0.5em}
+\begin{enumerate}[A)] 
+\setlength{\itemsep}{0pt}
+\item $G$ is connected and has no cut-vertex.
+\item For all $x,y\in V(G)$, there are two internally disjoint $x,y$-paths in $G$.
+\item For all $x,y\in V(G)$, there is a cycle containing both $x$ and $y$.
+\item $\delta(G)\geq1$, and every pair of edges in $G$ lie in a common cycle.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Menger]
+Let $G$ be a graph or digraph.
+
+\textit{(Local)} For every pair $x,y$ of distinct vertices, $\kappa(x,y)=\lambda'(x,y)$.
+If $xy\notin E(G)$, then $\kappa(x,y)=\lambda(x,y)$.
+
+\textit{(Global)}  $\kappa(G)=\min_{x,y} \lambda(x,y)$ and $\kappa'(G)=\min_{x,y} \lambda'(x,y)$.
+\end{theorem}
+
+\begin{theorem}
+The Ford-Fulkerson algorithm finds either a flow-augmenting path or a source/sink cut with capacity equal to the value of the flow.
+\end{theorem}
+\begin{corollary}[Max-flow=min-cut]
+In a network, the maximum value of a feasible flow equals the minimum capacity of a source/sink cut.
+\end{corollary}
+\begin{corollary}[Integrality]
+If all capacities in a network are integers, then there is a maximum flow with integral flow on each edge.  Futhermore, some such flow can be partitioned into flows of unit value along source-sink paths.
+\end{corollary}
+
+\begin{theorem}
+In a plane graph $G$, $2e=\sum \ell(f_i)$.
+\end{theorem}
+
+\begin{theorem}
+For a plane graph $G$, the following are equivalent:
+\vspace{-0.5em}
+\begin{enumerate}[A)]
+\setlength{\itemsep}{0pt}
+\item $G$ is bipartite.
+\item Every face of $G$ has even length.
+\item The dual graph $G^*$ is Eulerian.
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Euler's Formula]
+For a connected plane graph, $n(G)-e(G)+f(G)=2$.
+\end{theorem}
+\begin{theorem}
+If $G$ is simple, planar, and $n(G)\geq3$, then $e(G)\leq3n(G)-6$. 
+\par
+If also $G$ is triangle-free, then $e(G)\leq 2n(G)-4$.
+\end{theorem}
+
+\begin{theorem}[Kuratowski]
+A graph is planar if and only if it contains no subdivision of $K_5$ or $K_{3,3}$.
+\end{theorem}
+
+\begin{theorem}[Four color theorem]
+Every planar graph is 4-colorable.
+\end{theorem}
+
+\begin{theorem}
+Always $\chi'(G)\geq \Delta(G)$.
+\end{theorem}
+\begin{theorem}[K\"onig]
+If $G$ is bipartite, then $\chi'(G)=\Delta(G)$.
+\end{theorem}
+\begin{theorem}[Vizing]
+If $G$ is simple, then $\chi'(G)\leq \Delta(G)+1$.
+\end{theorem}
+
+
+\begin{theorem}
+If $G$ is Hamiltonian, then for every nonempty $S\subseteq V(G)$, $|S|\geq c(G-S)$.
+\end{theorem}
+
+\begin{theorem}[Dirac, Ore]
+If $G$ is simple and $\delta(G)\geq n/2$, then $G$ is Hamiltonian.
+
+If $G$ is simple and for every $xy\notin E(G)$, $d(x)+d(y)\geq n$, then $G$ is Hamiltonian.
+\end{theorem}
+
+\begin{theorem}[Tait]
+Let $G$ be a simple 2-edge-connected 3-regular plane graph.  $G$ is 3-edge-colorable if and only if $G$ is 4-face-colorable.
+\end{theorem}
+
+
+
+
+
+\end{document}

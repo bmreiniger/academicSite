@@ -1,0 +1,79 @@
+\documentclass[11pt]{amsart}%10pt for solutions
+\usepackage[margin=1in]{geometry}
+  
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+\newcommand{\cp}{\mathbin\Box}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Math 454\\ Homework 11 %Solutions 
+\qquad Due April 26*%<---removeforsolutions
+}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+%remove for solutions:
+
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+Turn in four of the following problems to be graded.
+\bigskip
+%-----/remove for solutions
+
+\begin{enumerate}
+\item (6.1.14) Prove or disprove: for every $n\in\mathbb{N}$, there is a simple connected 4-regular planar graph with at least $n$ vertices.
+
+\item (6.2.5) Determine the maximum number of edges in a planar subgraph of the Petersen graph.
+
+\item (6.2.7) \textit{(A graph is \emph{outerplanar} if it has a planar drawing in which all vertices lie on the unbounded face.)}  Use Kuratowski's Theorem to prove that $G$ is outerplanar if and only if it has no subgraph that is a subdivision of $K_4$ or $K_{2,3}$.
+%\item (6.2.8? no, needs fan lemma)
+%\item 6.2.12? no, weird/easy
+
+%\item (6.3.5) EXAM INSTEAD: Use the Four Color Theorem to prove that every planar graph decomposes into two bipartite subgraphs.
+\item (6.3.14, ``only if'') Prove that every 3-colorable plane triangulation is Eulerian.  \textit{(Hint: consider the dual)}
+
+%\item (7.1.15)
+
+\item (7.1.26) Let $G$ be a regular graph with a cut-vertex.  Prove that $\chi'(G)>\Delta(G)$.
+
+\item (7.2.8) On a chessboard, a knight can move from one square to another that differs by 1 in one coordinate and by 2 in the other coordinate.  A \emph{knight's tour} is a traversal of the board by a knight in which each square is visited exactly once, except that the knight returns to its starting square.  Prove that no $4\times n$ chessboard has a knight's tour.  \textit{(Hint: find a set of vertices in the corresponding graph that violates the necessary condition for a Hamiltonian cycle.  There is also an alternative proof using a very early result of ours in a clever way.)}
+
+%\item (7.2.9?
+
+\item (7.3.7) Let $G$ be a plane triangulation.
+\begin{enumerate}
+\item Prove that the dual $G^*$ has a 2-factor.
+\item Use part (a) to prove that the vertices of $G$ can be 2-colored (not properly) so that every face has vertices of both colors.  \textit{(Hint: use the idea in the proof of Theorem~7.3.2.)}
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
+

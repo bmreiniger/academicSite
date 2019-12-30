@@ -1,0 +1,100 @@
+\documentclass[11pt]{amsart}%10pt for solutions
+\usepackage[margin=1in]{geometry}
+  
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+\newcommand{\cp}{\mathbin\Box}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Math 454\\ Homework 8 %Solutions 
+\qquad Due March 29%<---removeforsolutions
+}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+%remove for solutions:
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+Turn in four of the following problems to be graded.
+\bigskip
+%-----/remove for solutions
+
+\begin{enumerate}
+\item
+\begin{enumerate}
+\item (5.2.3, part) Prove that if $G$ and $H$ are both color-critical, then so is $G\vee H$.
+\item (5.2.9) Prove that if $G$ is $k$-critical, then $M(G)$ (the Mycielskian of $G$) is $(k+1)$-critical.
+\end{enumerate}
+
+\item (5.2.32, part) \textit{The Haj\'os construction.} Let $G$ and $H$ be $k$-critical graphs sharing only vertex~$v$, with $vu\in E(G)$ and $vw\in E(H)$.  Prove that the graph $F=(G-vu)\cup(H-vw)\cup uw$ is also $k$-critical.  (The construction is illustrated below.)
+\begin{center}
+\begin{graph}
+\draw (-1,0) circle (1); \node at (-1,-1.3) {$G$};
+\draw (1,0) circle (1); \node at (1,-1.3) {$H$};
+\node[vertex] (v) at (0,0) {}; \node at (0.2,-0.1) {$v$};
+\node[vertex] (u) at (-0.5,0.5) {}; \node at (-.7,0.4) {$u$};
+\node[vertex] (w) at (0.5,0.5) {}; \node at (0.75,0.4) {$w$};
+\draw (u)--(v)--(w);
+\begin{scope}[xshift=3cm]
+\draw[->] (-.5,0)--(.5,0);
+\end{scope}
+\begin{scope}[xshift=6cm]
+\draw (-1,0) circle (1); 
+\draw (1,0) circle (1); 
+\node[vertex] (v) at (0,0) {}; \node at (0.2,-0.1) {$v$};
+\node[vertex] (u) at (-0.5,0.5) {}; \node at (-.7,0.4) {$u$};
+\node[vertex] (w) at (0.5,0.5) {}; \node at (0.75,0.4) {$w$};
+\draw[dashed] (u)--(v)--(w);
+\draw (u)--(w);
+\node at (0,-1.3) {$F$};
+\end{scope}
+\end{graph}
+\end{center}
+
+\item (5.2.15) Prove that every triangle-free $n$-vertex graph has chromatic number at most $2\sqrt{n}$.  \textit{(Hint: iteratively color large neighborhoods while they exist, then apply Brooks' Theorem.)  (See also Remark~5.2.4.)}
+
+\item (5.2.29) Let $G$ be a claw-free graph (no induced $K_{1,3}$).
+\begin{enumerate}
+\item Prove that the subgraph induced by the union of any two color classes in a proper coloring of $G$ consists of paths and even cycles.
+\item Prove that if $G$ has a proper coloring using exactly $k$ colors, then $G$ has a proper $k$-coloring in which the color classes differ in size by at most one.
+\end{enumerate}
+
+\item \textit{``Continuity'' of (list-)chromatic number.}  Let $G$ be a graph with a vertex $v$.
+\begin{enumerate}
+\item Prove that $\chi(G)\leq \chi(G-v)+1$.
+\item Prove that $\chi_{\ell}(G)\leq\chi_{\ell}(G-v)+1$.
+\end{enumerate}
+%\item (5.1.41, 8.4.22) Prove that $\chi_{\ell}(G)+\chi_{\ell}(\overline{G})\leq n(G)+1$.
+
+\item Prove that every even cycle is 2-choosable.  \textit{(Hint: consider separately the case that every vertex receives the same list.  If that's not the case, then there are two adjacent vertices with different lists (why?); now color around the cycle starting with one of these.)}
+\end{enumerate}
+
+
+\end{document}
+

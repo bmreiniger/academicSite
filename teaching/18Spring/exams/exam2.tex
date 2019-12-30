@@ -1,0 +1,383 @@
+\documentclass[addpoints,10pt]{exam}
+
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{tikz}\usetikzlibrary{calc}
+%\usepackage{nth}
+%\usepackage{graphicx}
+%\usepackage{array}
+%\usepackage{fancyvrb}%for code snippets but with math text
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+\newcommand{\cp}{\mathbin\Box}
+
+
+%variables
+\newcommand{\theclass}{Math 454 -- Graph Theory}
+\newcommand{\themex}{2}
+\newcommand{\thedate}{April 12, 2018}
+
+\newcommand{\disp}{\displaystyle}
+%\newcommand{\powerset}{\mathcal{P}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+%set up the header and footer
+\pagestyle{headandfoot}
+\header{Exam \themex}{\theclass}{\thedate}
+\headrule
+\setlength{\headsep}{0.25in}
+\footer{}{Page \thepage}{}
+
+% Create a True False question format
+\newcommand*{\TrueFalse}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{T}}{%
+        \textbf{TRUE}\hspace*{14pt}False
+    }{
+        True\hspace*{14pt}\textbf{FALSE}
+    }
+\else
+    {True}\hspace*{20pt}False
+\fi
+} 
+\newlength\TFlengthA
+\newlength\TFlengthB
+\settowidth\TFlengthA{\hspace*{1.36in}}
+\newcommand\TFQuestion[2]{%
+    \setlength\TFlengthB{\linewidth}
+    \addtolength\TFlengthB{-\TFlengthA}
+    \parbox[t]{\TFlengthA}{\TrueFalse{#1}}\parbox[t]{\TFlengthB}{#2}}
+% Create a Yes No question format
+\newcommand*{\YesNo}[1]{%
+\ifprintanswers
+    \ifthenelse{\equal{#1}{y}}{%
+        \textbf{Yes}\hspace*{14pt}No
+    }{
+        Yes\hspace*{14pt}\textbf{NO}
+    }
+\else
+    {Yes}\hspace*{20pt}No
+\fi
+} 
+\newlength\YNlengthA
+\newlength\YNlengthB
+\settowidth\YNlengthA{\hspace*{1.16in}}
+\newcommand\YNQuestion[2]{%
+    \setlength\YNlengthB{\linewidth}
+    \addtolength\YNlengthB{-\YNlengthA}
+    \parbox[t]{\YNlengthA}{\YesNo{#1}}\parbox[t]{\YNlengthB}{#2}}
+
+
+%before a paragraph, to indent all but the first line:
+\newcommand{\hangpara}{
+ \setlength{\parindent}{0cm} % don't indent new paragraphs
+ \hangindent=0.7cm % indent all subsequent lines
+}
+
+\newcounter{savedqn}
+
+%print the answers (or not)
+%\printanswers
+
+\begin{document}
+
+\ifprintanswers
+\begin{center}
+	\textbf{Solutions}
+\end{center}
+\else
+\vspace*{1em}
+\makebox[0.9\textwidth]{Name: \hrulefill}
+
+\vspace{20pt}
+
+\begin{itemize}
+\item \textbf{READ THE FOLLOWING DIRECTIONS!}
+\item \textbf{Do NOT open the exam until instructed to do so.}
+\end{itemize}
+%\begin{minipage}[b][0.6\textheight][t]{0.65\textwidth}
+\begin{itemize}
+\item You have 
+%choose one:
+%until 12:45pm 
+seventy-five (75) minutes
+%
+to complete this exam.  When you are told to stop writing, do it or you will lose all points on the page(s) you write on.
+\item You may not communicate with other students during this test.
+\item Keep your eyes on your own paper.
+\item No written materials of any kind are allowed.  No scratch paper is allowed except as given by the proctor.
+\item No phones, calculators, or any other electronic devices are allowed for any reason, including checking the time (a simple wristwatch is fine).
+\item Any case of cheating will be taken extremely seriously.
+
+\bigskip
+
+\item Show all your work and explain your answers when appropriate.
+\item Before turning in your exam, check to make certain you've answered all the questions.
+
+\bigskip
+
+%\item There are ??????seven (7) pages of questions.  That gives you ????????a little over ten (10) minutes per page.  Later questions are generally longer than earlier ones.
+
+\end{itemize}
+%\end{minipage}
+%\hfill
+
+\vfill
+
+%\begin{minipage}[b][0.6\textheight][t]{0.3\textwidth}
+\begin{center}
+\gradetable[h][questions]
+\end{center}
+%\end{minipage}
+
+%\vspace{40pt}
+%Some possibly useful formulas:
+%\begin{align*}
+% \iint_R (\del_x n - \del_y m ) \, dx \, dy = \int_a^b (m x' + n y' )\, dt \\
+% \cos^2 t = \frac{1}{2} (1+\cos(2t)) \\
+% \sin^2 t = \frac{1}{2} (1-\cos(2t))
+%\end{align*}
+
+
+%\newpage
+%\textbf{This page is left intentionally blank.}
+
+%You may use it for scratch work, but \textbf{do not} remove it.
+\newpage
+\fi
+
+
+\section*{Short answer}
+
+\begin{questions}
+
+\question[8] Find the maximum number of edges in a 16-vertex $K_4$-free graph.  Briefly justify.
+\vfill
+
+\question[12] Prove that the following graph $G$ cannot be properly colored from the displayed list assignment.  What does this say about $\chi_{\ell}(G)$?
+
+\begin{graph}[scale=2]
+\foreach \i in {0,1,2}
+{
+  \foreach \j in {0,1}
+  {
+    \node[vertex] (\i\j) at (\i,\j) {};
+  }
+}
+\draw (11)--(01)--(00)--(10)--(11)--(21)--(20)--(10);
+\node [label=above:{$\{1,3\}$}] at (01) {};
+\node [label=above:{$\{1,2\}$}] at (11) {};
+\node [label=above:{$\{2,4\}$}] at (21) {};
+\node [label=below:{$\{2,3\}$}] at (00) {};
+\node [label=below:{$\{1,2\}$}] at (10) {};
+\node [label=below:{$\{1,4\}$}] at (20) {};
+\end{graph}
+
+\vfill
+%\question The following bipartite graph \emph{does not have} a perfect matching.  Prove this (as efficiently as possible).
+
+\question[12] Prove that the following graph is 4-critical.  \textit{(This is very quick with an appropriate theorem, but is not hard to do directly.)}
+
+\begin{graph}[scale=1.25]
+\node[vertex] (c) at (0,0) {};
+\foreach \i in {1,2,...,5}
+{
+  \node[vertex] (w\i) at (90+72*\i:1) {};
+  \draw (w\i)--(c);
+}
+\draw (w1)--(w2)--(w3)--(w4)--(w5)--(w1);
+\end{graph}
+
+\vfill
+
+\newpage
+
+\question[8] The matching displayed in the following graph is \emph{not} maximum.  Prove this by finding an augmenting path.
+
+\begin{graph}
+\foreach \i in {1,2,...,5}
+{
+  \node[vertex] (v\i) at (90-72*\i:1.5) {};
+}
+\node[vertex] (u1) at ($(v2)+(230:1.5)$) {};
+\node[vertex] (u2) at ($(v2)+(270:1.5)$) {};
+\node[vertex] (u3) at ($(v2)+(310:1.5)$) {};
+  \node[vertex] (w1) at ($(v4)+(150:1.5)$) {};
+  \node[vertex] (w2) at ($(v4)+(210:1.5)$) {};
+\node[vertex] (c) at ($(v1)+(18:1.7)$) {};
+\node[vertex] (a1) at ($(c)+(-18:1.7)$) {};
+\node[vertex] (a2) at ($(a1)+(-60:1.7)$) {};
+\node[vertex] (a3) at ($(a1)+(240:1.7)$) {};
+  \node[vertex] (x) at ($(a1)+(18:1.7)$) {};
+  \node[vertex] (y) at ($(a3)+(0,-1.5)$) {};
+\draw (x)--(a1)--(a2)--(a3)--(a1)--(c)--(v1)--(v2)--(v3)--(v4)--(v5)--(v1);
+\draw (y)--(a3);
+\draw (u1)--(v2)--(u2); \draw (v2)--(u3);
+\draw (w1)--(v4)--(w2);
+\draw[line width=2pt,red] (v4)--(v5);
+\draw[line width=2pt,red] (v2)--(v3);
+\draw[line width=2pt,red] (v1)--(c);
+\draw[line width=2pt,red] (a1)--(a3);
+\end{graph}
+
+\vfill
+
+
+\question[15] Find a minimum vertex cover in the graph, and prove that it is minimum.
+
+\begin{graph}
+\foreach \i in {1,2,...,5}
+{
+  \node[vertex] (v\i) at (90-72*\i:1.5) {};
+}
+\node[vertex] (u1) at ($(v2)+(230:1.5)$) {};
+\node[vertex] (u2) at ($(v2)+(270:1.5)$) {};
+\node[vertex] (u3) at ($(v2)+(310:1.5)$) {};
+  \node[vertex] (w1) at ($(v4)+(150:1.5)$) {};
+  \node[vertex] (w2) at ($(v4)+(210:1.5)$) {};
+\node[vertex] (c) at ($(v1)+(18:1.7)$) {};
+\node[vertex] (a1) at ($(c)+(-18:1.7)$) {};
+\node[vertex] (a2) at ($(a1)+(-60:1.7)$) {};
+\node[vertex] (a3) at ($(a1)+(240:1.7)$) {};
+  \node[vertex] (x) at ($(a1)+(18:1.7)$) {};
+  \node[vertex] (y) at ($(a3)+(0,-1.5)$) {};
+\draw (x)--(a1)--(a2)--(a3)--(a1)--(c)--(v1)--(v2)--(v3)--(v4)--(v5)--(v1);
+\draw (y)--(a3);
+\draw (u1)--(v2)--(u2); \draw (v2)--(u3);
+\draw (w1)--(v4)--(w2);
+\end{graph}
+
+\vfill
+
+\setcounter{savedqn}{\thequestion}
+\end{questions}
+
+%\section*{Algorithms}
+%Give brief justifications for your answers (but not necessarily full proofs; a computation with each step clearly written may suffice).
+
+%\begin{questions}
+%\setcounter{question}{\thesavedqn}
+
+%\question erm, do we have any algorithms this time?  Greedy Coloring...
+
+
+%\setcounter{savedqn}{\thequestion}
+%\end{questions}
+
+\pagebreak
+
+\section*{Proofs}
+\begin{questions}
+\setcounter{question}{\thesavedqn}
+%\part A graph $G$ is bipartite if and only if $G\cp K_2$ is bipartite.
+%\part Find (with proof) the largest number of edges in a $C_4$-free subgraph of $Q_3$.
+%HOW TO PHRASE?  
+%Let $G$ be a connected weighted graph with an edge $e$ of weight zero (and every other edge having positive weight).  How are the problems MinSpTree, MinDist(u,v), ChinesePostman on $G$ related to those on $G-e$, $G\cdot e$, $G+(\text{copy of $e$ with weight 0})$, $G+(\text{copy of $e$ with positive weight})$?
+
+\question Let $G$ be an $X,Y$-bigraph with $n$ vertices.  Please note that throughout this problem we are using $\alpha(G)$, not $\alpha'(G)$.
+\begin{parts}
+%3.1.40, but the solution there uses alpha+beta=n
+\part[6] Prove that $\alpha(G)\geq n/2$.
+\vfill
+\part[10] Prove that if $G$ has no perfect matching, then $\alpha(G)>n/2$.  \textit{(Suggestion: first, is $|X|=|Y|$?  Then use Hall's Theorem.)}
+%If G is not balanced, then alpha>n/2; so suppose G is balanced.
+%If G has no perfect matching, then there is an S\subseteq X$ with $|N(S)|<|S|$.  Now S\cup (Y-N(S)) is an independent set, and has size |S|+(n/2)-|N(S)|>n/2.
+\vfill\vfill
+\part[10] Prove that if $\alpha(G)>n/2$, then $G$ has no perfect matching.  \textit{(Suggestion: use Tutte's 1-Factor Theorem.)}
+%Let I be an independent set of size >n/2, and consider S=V(G)-I.  Then G-S has |I| odd components (isolated vertices) and |S|<n/2<|I|=o(G-S).
+\vfill\vfill
+\end{parts}
+%always for bipartite, \alpha \geq n/2.   if \alpha>n/2, then either not balanced hence no p.m., or there such set I intersects both X and Y.  Say |I\cap X|\geq |I\cap Y|.  Let S=I\cap X; then N(S)\subseteq Y\setminus I, so |N(S)|\leq |Y-I| = |Y|-|Y\cap I| \leq |Y|-|S|......
+
+\newpage
+
+\question[24] Prove \textbf{three} of the following four statements.  \textit{(All of these have short proofs, some \emph{very} short.)}
+\begin{enumerate}[(i)]
+\item %5.2.1
+If $G$ is a graph such that $\chi(G-x-y)=\chi(G)-2$ for every pair of distinct vertices $x,y$, then $G$ is a complete graph.
+%suppose to the contrary that G is not complete: there exists xy\notin E(G).  And suppose that G-x-y is (\chi(G)-2)-colorable.  Then we may use one additional color on each of x and y, for a (\chi(G)-1)-coloring of G, a contradiction.
+
+%\question Suppose a graph has degree sequence 6,6,6,4,3,3,3,3.  Can you determine its chromatic number?  (If not, give the best bounds you can.)   
+%\leq 3 by greedy; cannot be bipartite because only one degree not divisible by 3
+%is graphic?  5533222, 422211, 11110, yep
+
+\item Always $\chi(G)\cdot \chi(\overline{G})\geq n(G)$.
+%\question Prove that $\chi(G\cup H) \leq \chi(G)\chi(H)$.
+%pf1: \chi(G)\geq n(G)/alpha(G) = n(G)/\omega(\overline{G}) \geq n(G)/\chi(\overline{G}).
+%pf2: consider optimal colorings of f of G and g of \overline{G}, and at each vertex v consider the ordered pair h(v):=(f(v), g(v)).  For each edge xy of G, f(x)\neq f(y), so h(x)\neq h(y); and for each nonedge xy of G, xy is an edge in \overline{G}, so g(x)\neq g(y), so h(x)\neq h(y).  Thus, h is an injection from V into [\chi(G)]\times[\chi(H)].
+
+%\question %3.1.19
+%....system of distinct representatives....
+
+\item %(3.3.10) 
+Always $\beta(G)\leq 2\alpha'(G)$. % For each $k\in\mathbb{N}$, construct a simple graph $G$ with $\alpha'(G)=k$ and $\beta(G)=2k$.
+%Consider a maximum matching M.  Then the set of endpoints of edges in M has size 2\alpha', and is a vertex cover: if any edge is not covered, then it could be added to M, contradicting its maximality.
+
+\item %(3.1.9)
+Every maximal matching in a graph $G$ has size at least $\alpha'(G)/2$.
+%pf1: Let M be maximal and M^* maximum matching.  Consider M\symmdiff M^*: each component is an even cycle or a path.  An even cycle has an equal number of M- and M^*-edges, and any path of length at least two has at most twice as many M^*-edges as M-edges.  Only a component consisting of one M^*-edge contributes more, but in this case such an edge could be added to M, contradicting its maximality.
+%pf2: Let M be maximal and M^* maximum matching.  Suppose to the contrary that |M^*|>2|M|.  Then M saturates fewer than $M^*$ vertices, and hence some edge of M^* can be added to M, contradicting maximality of M.
+%pf3: (similar to pf2). Let M be maximal matching; the endpoints of M form a vertex cover (if an edge is uncovered, then it could be added to M).  So 2|M|\geq \beta \geq \alpha'.
+
+\end{enumerate}
+
+
+
+%(The next are probably better as T/F, with just short justification)
+%\question %5.1.12
+%Prove or disprove: every optimal coloring of $G$ has a color class of size $\alpha(G)$.
+%Prove or disprove: every $k$-chromatic graph $G$ has a proper $k$-coloring with a color class of size $\alpha(G)$.
+%\question %5.1.15
+%Prove or disprove: if $a$ is the average degree of $G$, then $\chi(G)\leq 1+a$.
+
+\end{questions}
+
+\newpage
+
+(The statements are repeated here for your convenience.)
+\begin{enumerate}[(i)]
+\item %5.2.1
+If $G$ is a graph such that $\chi(G-x-y)=\chi(G)-2$ for every pair of distinct vertices $x,y$, then $G$ is a complete graph.
+\item Always $\chi(G)\cdot \chi(\overline{G})\geq n(G)$.
+\item %(3.3.10) 
+Always $\beta(G)\leq 2\alpha'(G)$. % For each $k\in\mathbb{N}$, construct a simple graph $G$ with $\alpha'(G)=k$ and $\beta(G)=2k$.
+\item %(3.1.9)
+Every maximal matching in a graph $G$ has size at least $\alpha'(G)/2$.
+\end{enumerate}
+
+
+
+
+
+
+%\ifprintanswers{}\else{
+%\newpage
+%\textbf{Scratch Paper - Do Not Remove}
+\newpage
+\textbf{Scratch Paper} - you may remove this if you find it convenient
+\newpage
+\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage
+%\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage
+%\textbf{Scratch Paper} - you may remove this if you find it convenient
+%\newpage\hspace{-1em}\includegraphics{Ch1Tables.pdf}
+%} \fi
+
+
+
+
+
+\end{document}
+

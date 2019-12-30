@@ -1,0 +1,73 @@
+\documentclass[11pt]{amsart}%10pt for solutions
+\usepackage[margin=1in]{geometry}
+  
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+\newcommand{\cp}{\mathbin\Box}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Math 454\\ Homework 10 %Solutions 
+\qquad Due April 19%<---removeforsolutions
+}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+%remove for solutions:
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+Turn in four of the following problems to be graded.
+\bigskip
+%-----/remove for solutions
+
+\begin{enumerate}
+\item (4.2.14) A \emph{$u,v$-necklace} is a list of cycles $C_1, \dotsc, C_t$ such that $u\in C_1$, $v\in C_t$, consecutive cycles share exactly one vertex, and nonconsecutive cycles are disjoint.  Use induction on $d(u,v)$ to prove that a graph $G$ is 2-edge-connected if and only if for all $u,v\in V(G)$ there is a $u,v$-necklace in $G$.
+
+\item (4.2.19)
+\begin{enumerate}
+\item Prove that two distinct edges lie in the same block of a graph if and only if they belong to a common cycle.
+\item Given $e,f,g\in E(G)$, suppose that $G$ has a cycle through $e$ and $f$ and a cycle through $f$ and $g$.  Prove that $G$ also has a cycle through $e$ and $g$.
+\end{enumerate}
+
+%\item (4.2.18) needs ear decomposition (or something like it)
+\item (4.2.22) Suppose that $\kappa(G)=k$ and $\diam(G)=d$.  Prove that $n(G)\geq k(d-1)+2$.  For each $k\geq1$ and $d\geq2$, construct a graph with connectivity $k$ and diameter $d$ that achieves equality.  \textit{(The textbook question also asks about $\alpha(G)$; we already did that part in HW5\#4; your construction doesn't have to achieve equality in that bound here, but it would be nice.)}
+
+\item (4.2.28) Let $X$ and $Y$ be disjoint sets of vertices in a $k$-connected graph $G$.  Let $u(x)$ for $x\in X$ and $w(y)$ for $y\in Y$ be positive integers such that $\sum_{x\in X} u(x)=\sum_{y\in Y} w(y)=k$.  Prove that $G$ has $k$ pairwise internally disjoint $X,Y$-paths with exactly $u(x)$ starting at $x$ for each $x\in X$ and $w(y)$ ending at $y$ for each $y\in Y$.
+\textit{(Hint: Modify $G$ by cloning each $x$ into $u(x)$ vertices, each $y$ into $w(y)$ vertices, and adding two other vertices.  Use the Expansion Lemma and Menger's Theorem.)}
+
+%\item 4.2.23/4.3.10?  Or maybe that in class, to help with the next two?
+
+\item You are again an instructor assigning students to projects, but this time you'll allow the students to work in groups of size up to $g$.  Students will submit to you a list of preferred projects; this time, you do not insist on lists of any particular size.  Use a network flow, the Max-flow=Min-cut theorem, and the Integrality Theorem to show that such an assignment is possible if and only if, for each subset $S$ of students, the union of their project lists has size at least $|S|/g$.  \textit{(When $g=1$, this could be done easily with Hall's Theorem.  When $g>1$, still one can use Hall's condition, but please use network flows here.)}
+
+\item (4.3.14) A university has $k$ departments, and needs to appoint a committee consisting of one professor representing each department.  Some professors have joint appointments in two or more departments, but in the committee each professor will represent only one department.  The committee must also be made up of an equal number of assistant professors, associate professors, and full professors (assume $k$ is divisble by 3).  Describe how to use network flows so that either (A)~you find an appropriate committee, or (B)~you can easily explain why no such committee is possible.
+
+\end{enumerate}
+
+
+\end{document}
+

@@ -1,0 +1,59 @@
+\documentclass[11pt]{amsart}%10pt for solutions
+\usepackage[margin=1in]{geometry}
+  
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumerate}
+\usepackage{tikz}
+%\usepackage{nth}
+
+\newcommand{\cp}{\mathbin\Box}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\diam}{diam}
+
+
+\newenvironment{graph}[1][scale=1]{
+\begin{tikzpicture}[#1]
+\tikzstyle{vertex}=[circle, draw, fill, inner sep=0pt, minimum size=4pt]%
+\tikzstyle{bigvtx}=[circle, draw, fill, inner sep=0pt, minimum size=6pt]%
+\tikzstyle{every path}=[line width=0.5pt]%
+}{\end{tikzpicture}}
+
+
+\begin{document}
+\title{Math 454\\ Homework 7 %Solutions 
+\qquad Due March 22%<---removeforsolutions
+}
+\author{}
+\date{}
+\maketitle
+\thispagestyle{empty}
+
+%remove for solutions:
+\noindent Name:~\hrulefill~~\\
+
+\begin{itemize}
+\item Refer to the syllabus regarding allowed collaboration on this homework assignment.
+\item Refer to other homework instructions and suggestions posted in Blackboard.
+\item All answers must be fully justified.
+\item Your homework should be neatly written on additional paper; you may attach this cover page if you would like to keep the questions attached to the answers.
+\end{itemize}
+
+\bigskip
+Turn in four of the following problems to be graded.
+\bigskip
+%-----/remove for solutions
+
+\begin{enumerate}
+\item (5.1.19)  \emph{spot the error in a false proof; see textbook for statement}
+\item (5.1.20)  Let $G$ be a graph whose odd cycles are pairwise intersecting, i.e.~every two odd cycles have a common vertex.  Prove that $\chi(G)\leq5$.
+\item (5.1.24)  Let $G$ be any 20-regular 360-vertex graph with the following properties: the vertices are evenly spaced around a circle; vertices separated by 1 or 2 degrees (along the circle) are nonadjacent, while vertices separated by 3, 4, 5, or 6 degrees are adjacent.  (Vertices separated by more than 6 degrees may or may not be adjacent, subject to the property that $G$ is 20-regular.)  Prove that $\chi(G)\leq19$.  \textit{(Remark: Brooks's Theorem gives $\chi(G)\leq20$.  Hint: color the vertices successively along the circle.)}
+\item (5.1.34)  For all $k$, construct a tree $T_k$ with maximum degree $k$ and an ordering $\sigma$ of $V(T_k)$ such that the greedy coloring relative to $\sigma$ uses $k+1$ colors.  \textit{(Hint: use induction on $k$, and construct the tree and the ordering together.)}
+\item (5.1.31)  Prove that $G$ is $m$-colorable if and only if $G\cp K_m$ has an independent set of size~$|V(G)|$.
+\item (8.4.21) Prove that $K_{k,m}$ is $k$-choosable if and only if $m<k^k$.
+\end{enumerate}
+
+
+\end{document}
+
